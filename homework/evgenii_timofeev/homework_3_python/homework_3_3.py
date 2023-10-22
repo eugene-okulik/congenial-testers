@@ -2,7 +2,7 @@ import math
 
 
 class Counter:
-    def __init__(self, number_1: float = 1, number_2: float = 2):
+    def __init__(self, number_1: float = 1.0, number_2: float = 2.0):
         self.number_1 = float(number_1)
         self.number_2 = float(number_2)
 

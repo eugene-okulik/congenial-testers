@@ -2,7 +2,7 @@ import math
 
 
 class Rectangle:
-    def __init__(self, cathetus_1: float = 1, cathetus_2: float = 2):
+    def __init__(self, cathetus_1: float = 1.0, cathetus_2: float = 2.0):
         self.cathetus_1 = float(cathetus_1)
         self.cathetus_2 = float(cathetus_2)
 
