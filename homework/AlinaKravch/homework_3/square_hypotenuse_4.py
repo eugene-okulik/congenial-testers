@@ -1,7 +1,7 @@
 import math
 
-a = 3
-b = 4
+a = 3.0
+b = 4.0
 
 square = a * b
 sqrt = ((a * a) + (b * b)) ** (0.5)
