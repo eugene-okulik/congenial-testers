@@ -2,7 +2,7 @@
 # print(sum_result, raznost, proizvedenie, sep = '\n')
 
 a = float(5)
-b = (7)
+b = float(7)
 sum_result = a + b
 raznost = a - b
 proizvedenie = a * b
