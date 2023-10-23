@@ -6,5 +6,3 @@ hypotenuse = (kat_1 ** 2 + kat_2 ** 2) ** 0.5
 
 print(area)
 print(hypotenuse)
-
-
