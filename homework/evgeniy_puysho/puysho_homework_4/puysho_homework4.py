@@ -1,7 +1,7 @@
 my_dict = {'tuple': (1, 2, 3, 4, 5),
            'list': [1, 'dva', 3.45, None, True],
            'dict': {'one': 1, 2: 'aga...', 3: 'blin4ik', 'four': 45, 'five': False},
-           'set': {'aboba', 2, 3, 4}
+           'set': {1, 'aboba', 2, 3, 4}
            }
 
 # присваиваю переменные для удобства их использования
@@ -33,6 +33,3 @@ print(my_tuple[-1])
 
 # выводим словарь на экран
 print(my_dict)
-
-# просто чтобы было, потому что могу...
-print(my_dict.values())
