@@ -5,18 +5,34 @@ my_dict = {'tuple': (1, 2, 3, 4, 5),
            }
 
 # присваиваю переменные для удобства их использования
-
-
 my_tuple = my_dict['tuple']
 my_list = my_dict['list']
 internal_dict = my_dict['dict']
 my_set = my_dict['set']
-my_list.append('Noviy element')  # добавил элемент в конец списка
-my_list.pop(1)  # удаление элемента 'dva' из списка
-internal_dict['i am a tuple'] = 'luboe zna4enie))'  # добавление нового элемента в словарь
-internal_dict.pop('five')  # удаление элемента из словаря
-my_set.add('ya dobavil')  # добавление элемента во множество
-my_set.remove('aboba')  # удаление элемента из множетсва
-print(my_tuple[-1])  # распечатывание последнего элемент кортежа
-print(my_dict)  # выводим словарь на экран
-print(my_dict.values())  # просто чтобы было, потому что могу...
+
+# добавил элемент в конец списка
+my_list.append('Noviy element')
+
+# удаление элемента 'dva' из списка
+my_list.pop(1)
+
+# добавление нового элемента в словарь
+internal_dict['i am a tuple'] = 'luboe zna4enie))'
+
+# удаление элемента из словаря
+internal_dict.pop('five')
+
+# добавление элемента во множество
+my_set.add('ya dobavil')
+
+# удаление элемента из множетсва
+my_set.remove('aboba')
+
+# распечатывание последнего элемент кортежа
+print(my_tuple[-1])
+
+# выводим словарь на экран
+print(my_dict)
+
+# просто чтобы было, потому что могу...
+print(my_dict.values())
