@@ -17,7 +17,7 @@ my_list.append('Noviy element')
 my_list.pop(1)
 
 # добавление нового элемента в словарь
-internal_dict['i am a tuple'] = 'luboe zna4enie))'
+internal_dict[('i am a tuple',)] = 'luboe zna4enie))'
 
 # удаление элемента из словаря
 internal_dict.pop('five')

@@ -11,7 +11,7 @@ my_dict['list'].append('Noviy element')
 my_dict['list'].remove('dva')
 
 # добавление нового элемента в словарь
-my_dict['dict']['i am a tuple'] = 'luboe znachenie'
+my_dict['dict'][('i am a tuple',)] = 'luboe znachenie'
 
 # удаление элемента из словаря
 my_dict['dict'].pop('five')
