@@ -13,7 +13,7 @@ my_dict["list"].append(1)
 my_dict["list"].pop(1)
 
 # Add one element to a tuple and delete one element from the tuple
-my_dict["dict"]["i am a tuple"] = "it's a lie. I'm not a tuple"
+my_dict["dict"][("i am a tuple",)] = "it's a lie. I'm not a tuple."
 del my_dict["dict"]["one"]
 
 # Add one element to set and delete one element from the set
