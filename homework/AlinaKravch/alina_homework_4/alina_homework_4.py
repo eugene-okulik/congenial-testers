@@ -10,5 +10,4 @@ dictionary['my_dict']['i am a tuple'] = 'Alex'
 del dictionary['my_dict']['two']
 dictionary['my_set'].add('end')
 dictionary['my_set'].remove('end')
-
 print(dictionary)
