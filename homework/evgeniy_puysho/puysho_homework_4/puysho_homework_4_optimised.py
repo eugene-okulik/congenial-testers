@@ -1,9 +1,8 @@
-my_dict = {
-    'tuple': (1, 2, 3, 4, 5),
-    'list': [1, 'dva', 3.45, None, True],
-    'dict': {'one': 1, 2: 'aga...', 3: 'blin4ik', 'four': 45, 'five': False},
-    'set': {'aboba', 2, 3, 4}
-    }
+my_dict = {'tuple': (1, 2, 3, 4, 5),
+           'list': [1, 'dva', 3.45, None, True],
+           'dict': {'one': 1, 2: 'aga...', 3: 'blin4ik', 'four': 45, 'five': False},
+           'set': {1, 2, 'aboba', 2, 3, 4}
+           }
 
 # добавил элемент в конец списка
 my_dict['list'].append('Noviy element')
