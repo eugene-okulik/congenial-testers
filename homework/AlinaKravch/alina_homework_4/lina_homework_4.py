@@ -1,7 +1,7 @@
 dictionary = {
     'my_tuple': (1, 2.5, 'Alina', 4, True),
     'my_list': [1, False, 2.42, 'last', 'last2'],
-    'my_dict': {'one': True, 'two': 'Friend', 'three': 3, 'four': 2.6, 'five': False}, 
+    'my_dict': {'one': True, 'two': 'Friend', 'three': 3, 'four': 2.6, 'five': False},
     'my_set': {3, None, 'Fine', False, 2.42}
 }
 
