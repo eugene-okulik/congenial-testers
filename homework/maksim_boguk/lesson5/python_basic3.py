@@ -17,5 +17,6 @@ print(sum2)
 
 students = ['Ivanov', 'Petrov', 'Sidorov']
 subjects = ['math', 'biology', 'geography']
-print('Students Ivanov, Petrov, Sidorov study these subjects:', ',' ' '.join(subjects)
+print(
+    'Students Ivanov, Petrov, Sidorov study these subjects:', ',' ' '.join(subjects)
       )
