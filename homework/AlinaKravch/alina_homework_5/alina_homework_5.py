@@ -1,7 +1,7 @@
 # Task 1
 # Unpack 'person'
 person = ['John', 'Doe', 'New York', '+1372829383739', 'US']
-name, last_name, city, phone, country = person 
+name, last_name, city, phone, country = person
 print(person)
 
 # Task №2
