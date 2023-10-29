@@ -3,7 +3,7 @@ person = ['John', 'Doe', 'New York', '+1372829383739', 'US']
 name, last_name, city, phone, country = person
 print(name, last_name, city, phone, country)
 
-# Задание нумбер 2
+# Задание  2
 res_1 = 'результат операции: 42'
 res_2 = 'результат операции: 54'
 
