@@ -9,7 +9,6 @@ data_two = "результат операции: 54"
 data_one_index = data_one.index(data_one.split()[-1])
 data_two_index = data_two.index(data_two.split()[-1])
 
-
 print(
     f"Результат первой строки = {float(data_one[data_one_index:]) + 10} \n"
     f"Результат второй строки = {float(data_two[data_two_index:]) + 10} \n",
