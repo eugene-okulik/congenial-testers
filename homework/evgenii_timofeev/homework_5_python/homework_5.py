@@ -6,8 +6,8 @@ name, last_name, city, phone, country = person
 data_one = "результат операции: 42"
 data_two = "результат операции: 54"
 print(
-    f"Результат первой строки = {float(data_one[-3:]) + 10} \n"
-    f"Результат второй строки = {float(data_two[-3:]) + 10} \n"
+    f"Результат первой строки = {float(data_one[data_one.index("42"):]) + 10} \n"
+    f"Результат второй строки = {float(data_two[data_two.index("54"):]) + 10} \n",
 )
 
 # Task №3
