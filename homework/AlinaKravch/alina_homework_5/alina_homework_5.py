@@ -2,7 +2,6 @@
 # Unpack 'person'
 person = ['John', 'Doe', 'New York', '+1372829383739', 'US']
 name, last_name, city, phone, country = person
-print(person)
 
 # Task №2
 # 52 and 64
