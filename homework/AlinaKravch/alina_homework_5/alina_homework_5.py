@@ -21,3 +21,4 @@ students = ['Ivanov', 'Petrov', 'Sidorov']
 subjects = ['Math', 'Biology', 'Geography']
 
 print(f"Students {', '.join(students)} study these subjects: {', '.join(subjects)}.")
+# comment
