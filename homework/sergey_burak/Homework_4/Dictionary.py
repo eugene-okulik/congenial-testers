@@ -32,7 +32,7 @@ print('последний элемент под ключом tuple: ', my_dict['
 my_dict['list'].append('eleven')
 my_dict['list'].pop(1)
 print('добавим в конец списка list ещё один элемент и удалим второй: ', my_dict['list'])
-my_dict['dict']['i am a tuple'] = 'Holyday'
+my_dict['dict']['''('i am a tuple',)'''] = 'Holyday'
 del my_dict['dict']['mo']
 print('добавим в dict элемент c ключом и любым значением, удаляем какой-нибудь элемент: ', my_dict['dict'])
 my_dict['set'].add(10)
