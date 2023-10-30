@@ -1,13 +1,12 @@
 # возможно я не совсем понял данное задание((
 
-a = 'результат операции: 42'
-b = 'результат операции: 54'
+string_1 = 'результат операции: 42'
+string_2 = 'Результат ОПЕРАЦИИ: 53453454'
 
-# просто срез с конца
-num_a = int(a[-2:])
-print(num_a + 10)
+replace_str_1 = string_1.replace(' ', '')
+index_str_1 = replace_str_1.index(':')
+print(int(replace_str_1[index_str_1:].replace(':', '')) + 10 )
 
-# индекс + срез
-index_b = b.index('54')
-num_b = int(b[20:])
-print(num_b + 10)
+replace_str_2 = string_2.replace(' ', '')
+index_str_2 = replace_str_2.index(':')
+print(int(replace_str_2[index_str_2:].replace(':', '')) + 10 )
