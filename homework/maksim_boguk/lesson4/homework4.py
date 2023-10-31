@@ -30,5 +30,5 @@ my_dict['my_set'].add(777)
 my_dict['my_set'].remove(3)
 print(my_dict)
 
-#В конце выведите на экран весь словарь
+# В конце выведите на экран весь словарь
 print(my_dict)
