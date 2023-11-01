@@ -1,23 +1,15 @@
 person = ['John', 'Doe', 'New York', '+1372829383739', 'US']
-name = 'John'
-last_name = 'Doe'
-city = 'New York'
-phone = '+1372829383739'
-country = 'US'
+name, last_name, city, phone, country = person
 
-a = ['результат', 'операции:', 42]
-a1 = 42
-sum1 = a1 + 10
-print(sum1)
+a = "результат операции: 42"
+b = "результат операции: 54"
+suma = a.index(a.split()[-1])
+sumb = b.index(b.split()[-1])
 
-b = ['результат', 'операции:', 54]
-b1 = 54
-sum2 = b1 + 10
-print(sum2)
+print(f"Первый результат операции = {int(a[suma:]) + 10} \n"
+      f"Второй результат операции = {int(b[sumb:]) + 10} \n"
+      )
 
 students = ['Ivanov', 'Petrov', 'Sidorov']
 subjects = ['math', 'biology', 'geography']
-print(
-    'Students Ivanov, Petrov, Sidorov study these subjects:', ',' ' '.join(subjects)
-      )
- 
+print(f'Students {", ".join(students)} study these subjects: {", ".join(subjects)}')
