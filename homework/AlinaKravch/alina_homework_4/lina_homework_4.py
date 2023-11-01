@@ -13,7 +13,7 @@ dictionary['my_list'].append(43)
 dictionary['my_list'].pop(2)
 
 # Add one more element with the key 'I am a tuple' and delete any element
-dictionary['my_dict']['i am a tuple'] = 'Alex'
+my_dict['dict'][('i am a tuple',)] = 'Alex'
 del dictionary['my_dict']['two']
 
 # Add one element to the set and delete one element from the set
