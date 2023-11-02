@@ -10,13 +10,14 @@ print(text1)
 
 # task 2
 
-list1 = ['результат', 'операции:', 42]
-list2 = ['результат', 'операции:', 54]
+text_one_42 = "результат операции: 42"
+text_two_54 = "результат операции: 54"
 
-numb1 = int(list1[2])
-numb2 = int(list2[2])
-print(numb1 + 10)
-print(numb2 + 10)
+srez1 = int(text_one_42[text_one_42.index('42'):])
+srez2 = int(text_two_54[text_two_54.index('54'):])
+
+print(srez1 + 10)
+print(srez2 + 10)
 
 # task 3
 
