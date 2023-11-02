@@ -4,15 +4,15 @@ name, last_name, city, phone, country = person
 
 
 # Task 2
-res_1 = 'результат операции: 42'
+res_1 = 'результат выполнения операции: 42'
 res_2 = 'результат операции: 54'
 
-res_1_index = res_1.index(res_1[20:])
-res_2_index = res_2.index(res_2[20:])
+res_1_index = res_1.index(':') + 2
+res_2_index = res_2.index(':') + 2
 
 print(
     f'Результат первого сложения: {int(res_1[res_1_index:]) + 10} \n'
-    f'Результат второго сложения: {int(res_2[res_1_index:]) + 10}'
+    f'Результат первого сложения: {int(res_2[res_2_index:]) + 10} \n'
 )
 
 
