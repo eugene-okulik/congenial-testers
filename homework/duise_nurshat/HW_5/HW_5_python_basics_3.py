@@ -5,7 +5,7 @@ person = ['John', 'Doe', 'New York', '+1372829383739', 'US']
 
 name, last_name, city, phone, country = person
 
-text1 = f'{{name, last_name, city, phone, countr}}'
+text1 = f'name, last_name, city, phone, countr'
 print(text1)
 
 # task 2
