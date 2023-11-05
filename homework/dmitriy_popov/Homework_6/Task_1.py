@@ -3,19 +3,9 @@ text = ('Etiam tincidunt neque erat, quis molestie enim imperdiet vel. \n'
 words = text.split()
 fin_words = []
 for word in words:
-        if word.endswith((',', '.')):
-                word = word.replace(word[-1], 'ing') + word[-1]
-        else:
-                word = word + 'ing'
-        fin_words.append(word)
+    if word.endswith((',', '.')):
+        word = word.replace(word[-1], 'ing') + word[-1]
+    else:
+        word = word + 'ing'
+    fin_words.append(word)
 print(' '.join(fin_words))
-
-
-
-
-
-
-
-
-
-
