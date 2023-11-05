@@ -6,4 +6,4 @@ new_text = text.split()
 print(new_text)
 
 for word in new_text:
-        print(word + 'ing')
+    print(word + 'ing')
