@@ -13,5 +13,3 @@ for word in new_word:
         changes_word.append(word[:-1] + chang + word[-1])
 
 print(changes_word)
-
-
