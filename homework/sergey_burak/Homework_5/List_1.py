@@ -10,4 +10,3 @@ city = person[2]
 phone = person[3]
 country = person[4]
 print(name, last_name, city, phone, country)
-
