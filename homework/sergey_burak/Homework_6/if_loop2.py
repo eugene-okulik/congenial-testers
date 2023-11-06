@@ -27,4 +27,5 @@ for sub in range(1, 101):
         print("Fuzz")
     elif sub % 5 == 0:
         print("Buzz")
-    else: print(sub)
+    else:
+        print(sub)
