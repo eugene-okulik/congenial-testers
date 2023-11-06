@@ -3,11 +3,11 @@
 # For numbers that are multiples of both 3 and 5, it should print "FuzzBuzz". Otherwise, print the number.
 
 for n in range(1, 101):
-    if n % 3 == 0:
-        print('Fuzz')
+    if (n % 3 == 0) and (n % 5 == 0):
+        print('FuzzBuzz')
     elif n % 5 == 0:
         print('Buzz')
-    elif (n % 3 == 0) and (n % 5 == 0):
-        print('FuzzBuzz')
+    elif n % 3 == 0:
+        print('Fuzz')
     else:
         print(n)
