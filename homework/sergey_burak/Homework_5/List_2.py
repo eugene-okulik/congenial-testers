@@ -17,5 +17,5 @@ print(str2)
 string1_index = int(str1.index(":"))
 string2_index = int(str2.index(":"))
 
-print('Результат сложения: ', int(str1[string1_index+2:])+10)
-print('Результат сложения: ', int(str2[string2_index+2:])+10)
+print('Результат сложения: ', int(str1[string1_index + 2:]) + 10)
+print('Результат сложения: ', int(str2[string2_index + 2:]) + 10)
