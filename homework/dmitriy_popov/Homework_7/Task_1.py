@@ -4,8 +4,7 @@ while True:
     user_input = int(input('Введите число от 1 до 10: '))
     if user_input == number:
         break
-    elif user_input != number:
+    else:
         print('Попробуйте снова')
-        continue
 
 print('Поздравляю! Вы угадали!')
