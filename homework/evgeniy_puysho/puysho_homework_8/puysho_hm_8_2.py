@@ -7,12 +7,10 @@ def fibonacci():
 
 
 count = 0
+range_to_compare = [3, 200, 1000]
 for num in fibonacci():
     count += 1
-    if count == 5:
+    if count in range_to_compare:
         print(num)
-    elif count == 200:
-        print(num)
-    elif count == 1000:
-        print(num)
+    if count > 1000:
         break
