@@ -15,7 +15,7 @@ x = random.randint(0, 9)
 a = int(input("Попробуйте угадать цифру: "))
 while True:
     if a == x:
-        print(f"Поздравляю! Вы угадали!")
+        print("Поздравляю! Вы угадали!")
         break
     else:
         print('попробуйте снова')
