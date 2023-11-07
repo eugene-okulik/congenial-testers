@@ -14,5 +14,5 @@ for num in fibonacci():
     count += 1
     if count in range_to_compare:
         print(num)
-    if count > 1000:
+    if count > 999:
         break
