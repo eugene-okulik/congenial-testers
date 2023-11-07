@@ -6,7 +6,6 @@ def calc(string):
     result = int(result) + 10
     print(f'The result of calculation: {result}')
 
-
 string = ['res_1: 42',
           'res_2: 54',
           'res_3: 209',
@@ -15,3 +14,4 @@ string = ['res_1: 42',
 
 for result in string:
     calc(result)
+    
