@@ -12,4 +12,4 @@ for word in new_word:
     else:
         changes_word.append(word[:-1] + chang + word[-1])
 
-print(changes_word)
+print(' '.join(changes_word))
