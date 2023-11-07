@@ -1,4 +1,4 @@
-# Guess the program number 
+# Guess the program number
 program_number = 5
 user_number = int(input("Enter a number between 1 and 10:"))
 
