@@ -15,4 +15,3 @@ string = ['res_1: 42',
 
 for result in string:
     calc(result)
-    
