@@ -7,7 +7,9 @@ def fibonacci():
 
 
 count = 0
-range_to_compare = [3, 200, 1000]
+
+# хм, не уверен, но раз нужно вывести число n, то в ренже надо указать n-1, тк счет с нуля, да?
+range_to_compare = [4, 199, 999]
 for num in fibonacci():
     count += 1
     if count in range_to_compare:
