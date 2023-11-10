@@ -1,7 +1,6 @@
 word = ('Etiam tincidunt neque erat, quis molestie enim imperdiet vel.'
         'Integer urna nisl, facilisis vitae semper at, dignissim vitae libero')
 
-
 new_word = word.split()
 changes_word = []
 chang = "ing"
