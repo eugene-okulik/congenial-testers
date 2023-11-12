@@ -1,8 +1,11 @@
 text = ('Etiam tincidunt neque erat, quis molestie enim imperdiet vel. Integer urna nisl, facilisis vitae semper at, '
         'dignissim vitae libero')
 
-new_text = text.split()
-print(new_text)
+rep = text.replace(',', '').replace('.', '')
+words = rep.split()
+new_text = []
+for word in words:
+    new_text.append(word + 'ing')
 
-for word in new_text:
-    print(word + 'ing')
+result = " ".join(new_text)
+print(result)
