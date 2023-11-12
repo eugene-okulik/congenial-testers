@@ -21,4 +21,3 @@ def find_num_fib(*numb):
 
 find_num_fib(5, 200, 1000)
 find_num_fib(100000)
-
