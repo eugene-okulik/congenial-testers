@@ -8,4 +8,3 @@ if bonus:
     print(f"${salary}, 'True - ${salary + random.randrange(100, 10000)}'")
 else:
     print(f"${salary}, 'False - ${salary}'")
-
