@@ -3,16 +3,11 @@ temperatures = [20, 15, 32, 34, 21, 19, 25, 27, 30, 32, 34, 30, 29, 25, 27,
                 22, 22, 23, 25, 29, 29, 31, 33, 31, 30, 32, 30, 28, 24, 23
                 ]
 
-# я так понял, что без разницы, в каком месте преобразовывать генератор в лист:
-# в саму переменную, или уже в f-строку
-# попробовал и так и так, разницы не увидел, + нам оно дальше не нужно
-# поэтому оставил в f-строке
-warm_days = (filter(lambda x: x > 28, temperatures))
-print(f'В самые жаркие дни была следующая температура: \n{(list(warm_days))} ')
+warm_days = list(filter(lambda x: x > 28, temperatures))
+print(f'В самые жаркие дни была следующая температура: \n{warm_days}')
 
-# avg_temp = sum(temperatures) / len(temperatures)
-# хз норм ли все в f-строку, но раз нам не надо использовать это дальше, не создавал переменные
-print(f'Минимальная температура - {min(temperatures)}°C \n'
-      f'Максимальная температура - {max(temperatures)}°C \n'
-      f'Средняя температура - {int(statistics.mean(temperatures))}°C'
+# avg_temp = sum(warm_days) / len(warm_days)
+print(f'Минимальная температура - {min(warm_days)}°C \n'
+      f'Максимальная температура - {max(warm_days)}°C \n'
+      f'Средняя температура - {(statistics.mean(warm_days)):.2f}°C'
       )
