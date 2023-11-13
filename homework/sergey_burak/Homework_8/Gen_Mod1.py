@@ -15,6 +15,6 @@ addbonus = random.randint(250, 785)
 salary = int(input("Введите salary: "))
 
 if bonus:
-    print(f'{salary}, {bonus} - ${salary + addbonus}')
+    print(f"{salary}, {bonus} - '${salary + addbonus}'")
 else:
     print(f"{salary}, {bonus} - '${salary}'")
