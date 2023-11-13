@@ -3,12 +3,12 @@
 def fibonachi_num(n):
     a, b = 0, 1
     for item in range(n):
-        a, b = b, a + b
         yield a
+        a, b = b, a + b
 
 
-print(f"Пятое число Фибоначчи: {list(fibonachi_num(5))[-2]}\n"
-      f"Двухсотое число Фибоначчи: {list(fibonachi_num(200))[-2]}\n"
-      f"Тысячное число Фибоначчи: {list(fibonachi_num(1000))[-2]}\n"
-      f"Стотысячное число Фибоначчи: {list(fibonachi_num(10**5))[-2]}\n"
+print(f"Пятое число Фибоначчи: {list(fibonachi_num(5))[-1]}\n"
+      f"Двухсотое число Фибоначчи: {list(fibonachi_num(200))[-1]}\n"
+      f"Тысячное число Фибоначчи: {list(fibonachi_num(1000))[-1]}\n"
+      f"Стотысячное число Фибоначчи: {list(fibonachi_num(10**5))[-1]}\n"
       )
