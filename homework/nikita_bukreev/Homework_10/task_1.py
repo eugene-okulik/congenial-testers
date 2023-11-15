@@ -1,10 +1,14 @@
 # Решил использовать мачкейс вместо ифов в функции калк
-# Но с самим декоратором не разобрался, выходит кривой реультат в последнем условии
-# Буду благодарен за подсказки=)
+# Но с самим декоратором не разобрался, выходит кривой реультат в последнем условии - UPD Разобрался) нужно было
+# проверку на отрицательность самой первой сделать...)
+# Буду благодарен за подсказки, т.к. очень кривенько вышло=)
 
 def custom_decorator(funk):
-    def wrapper(first, second, operation):
-        if first == second:
+    def wrapper(first, second, operation):   # operation вообще не подсвечивается (тип не используется)
+        if (first < 0) or (second < 0):
+            result = funk(first, second, '*')
+            return result
+        elif first == second:
             result = funk(first, second, '+')
             return result
         elif first > second:
@@ -13,9 +17,7 @@ def custom_decorator(funk):
         elif second > first:
             result = funk(first, second, '/')
             return result
-        elif (first < 0) or (second < 0):
-            result = funk(first, second, '*')
-            return result
+
     return wrapper
 
 
