@@ -9,4 +9,5 @@ def add_ten_to_numbers(text):
     new_numb = srez + 10
     print(new_numb)
 
+
 add_ten_to_numbers(text1)
