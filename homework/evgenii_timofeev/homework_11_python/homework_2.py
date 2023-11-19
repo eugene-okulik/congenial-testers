@@ -57,8 +57,8 @@ def create_and_print_books():
     books[0].reserved = True
     books[0].has_tasks = True
 
-    for i in books:
-        print(i)
+    for book in books:
+        print(book)
 
 
 if __name__ == "__main__":
