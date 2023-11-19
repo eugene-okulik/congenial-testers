@@ -1,4 +1,4 @@
-import random
+from random import randint
 
 from faker import Faker
 
@@ -49,8 +49,8 @@ def create_and_print_books():
             author=fake.last_name(),
             number_of_pages=fake.postcode()[:3],
             isbn=fake.isbn10(),
-            subject=subjects[random.randint(0, len(subjects) - 1)],
-            school_class=random.randint(1, 11),
+            subject=subjects[randint(0, len(subjects) - 1)],
+            school_class=randint(1, 11),
         )
         books.append(new_book)
 
