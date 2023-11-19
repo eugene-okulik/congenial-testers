@@ -1,15 +1,15 @@
 def decoration(func):
-    def wrapper(num1, num2, operation):
-        if num1 or num2 < 0:
-            operation = '*'
+    def wrapper(num1, num2, operator):
+        if num1 < 0 or num2 < 0:
+            operator = '*'
         elif num1 == num2:
-            operation = '+'
+            operator = '+'
         elif num1 > num2:
-            operation = '-'
+            operator = '-'
         elif num1 < num2:
-            operation = '/'
+            operator = '/'
 
-        return func(num1, num2, operation)
+        return func(num1, num2, operator)
 
     return wrapper
 
