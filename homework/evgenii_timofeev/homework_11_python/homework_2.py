@@ -45,9 +45,9 @@ def create_and_print_books():
     books = []
     for book in range(5):
         new_book = SchoolBook(
-            book_name=fake.text()[:10],
-            author=fake.last_name(),
-            number_of_pages=fake.postcode()[:3],
+            book_name=fake.color_name(),
+            author=fake.name(),
+            number_of_pages=randint(1, 1000),
             isbn=fake.isbn10(),
             subject=subjects[randint(0, len(subjects) - 1)],
             school_class=randint(1, 11),

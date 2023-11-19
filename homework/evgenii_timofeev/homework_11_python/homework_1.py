@@ -1,3 +1,5 @@
+from random import randint
+
 from faker import Faker
 
 fake = Faker()
@@ -25,9 +27,7 @@ class Book:
 def create_and_print_books():
     books = []
     for book in range(5):
-        new_book = Book(
-            fake.text()[:10], fake.last_name(), fake.postcode()[:3], fake.isbn10()
-        )
+        new_book = Book(fake.color_name(), fake.name(), randint(1, 1000), fake.isbn10())
         books.append(new_book)
 
     books[0].reserved = True
