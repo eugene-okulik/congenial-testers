@@ -1,14 +1,25 @@
 # Напишите функцию-генератор, которая генерирует список чисел фибоначчи
 # Распечатайте из этого списка пятое число, двухсотое число, тысячное число, стотысячное число
-def fibonachi_num(n):
+import sys
+sys.set_int_max_str_digits(100000)
+
+
+def fibonachi_num():
     a, b = 0, 1
-    for item in range(n):
-        a, b = b, a + b
+    while True:
         yield a
+        a, b = b, a + b
 
 
-print(f"Пятое число Фибоначчи: {list(fibonachi_num(5))[-2]}\n"
-      f"Двухсотое число Фибоначчи: {list(fibonachi_num(200))[-2]}\n"
-      f"Тысячное число Фибоначчи: {list(fibonachi_num(1000))[-2]}\n"
-      f"Стотысячное число Фибоначчи: {list(fibonachi_num(10**5))[-2]}\n"
-      )
+count = 0
+for num in fibonachi_num():
+    count += 1
+    if count == 5:
+        print(num)
+    elif count == 200:
+        print(num)
+    elif count == 1000:
+        print(num)
+    elif count == 10**5:
+        print(num)
+        break
