@@ -15,8 +15,9 @@ for t in temperatures:
     days += 1
 print(f"Жаркие дни: {hotdays}")
 
-print(f'Температура в жаркие дни: {list(filter(lambda t: t > 28, temperatures))}\n'
-      f'Максимальная температура: {max(filter(lambda t: t > 28, temperatures))}\n'
-      f'Минимальная температура: {min(filter(lambda t: t > 28, temperatures))}\n'
+hotdays1 = list(filter(lambda t: t > 28, temperatures))
+print(f'Температура в жаркие дни: {hotdays1}\n'
+      f'Максимальная температура: {max(hotdays1)}\n'
+      f'Минимальная температура: {min(hotdays1)}\n'
       f'Средняя температура: '
-      f'{round(sum(filter(lambda t: t > 28, temperatures)) / len(list(filter(lambda t: t > 28, temperatures))), 1)}')
+      f'{round(sum(hotdays1) / len(hotdays1), 1)}')
