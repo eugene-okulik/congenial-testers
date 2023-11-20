@@ -17,16 +17,11 @@ knigi = [
     Books('Сумасшедшая История', 'Питер Джонсон', 99, 7321, False),
     Books('Забавная Приключение', 'Анна Петрова', 99, 7321, True)
 ]
-
 for book in knigi:
-    if book.is_reserved:
-        print(f"Название: {book.book_name}, Автор: {book.author}, cтраниц: {book.pages_count}, "
+    reserved_status = ', зарезевирована' if school_book.is_reserved else ''
+    print(f"Название: {book.book_name}, Автор: {book.author}, cтраниц: {book.pages_count}, "
               f"материал: {book.page_material}, зарезервирована"
-              )
-    else:
-        print(f"Название: {book.book_name}, Автор: {book.author}, cтраниц: {book.pages_count}, "
-              f"материал: {book.page_material}"
-              )
+          )
 
 
 class Schoolbook(Books):
@@ -45,11 +40,7 @@ school_books = [
     Schoolbook('Спина болеть не будет', 'А. Невский', 123, 9876, True, 'Физкультура', 7, True),
 ]
 for school_book in school_books:
-    if school_book.is_reserved:
-        print(f"Название: {school_book.book_name}, Автор: {school_book.author}, cтраниц: {school_book.pages_count}, "
-              f"предмет: {school_book.subject}, класс: {school_book.grade}, зарезервирована"
-              )
-    else:
-        print(f"Название: {school_book.book_name}, Автор: {school_book.author}, cтраниц: {school_book.pages_count}, "
-              f"предмет: {school_book.subject}, класс: {school_book.grade}"
-              )
+    reserved_status = ', зарезевирована' if school_book.is_reserved else ''
+    print(f"Название: {school_book.book_name}, Автор: {school_book.author}, cтраниц: {school_book.pages_count}, "
+              f"предмет: {school_book.subject}, класс: {school_book.grade}{reserved_status}"
+          )
