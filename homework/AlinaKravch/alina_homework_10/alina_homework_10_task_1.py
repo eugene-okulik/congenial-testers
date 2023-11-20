@@ -28,3 +28,6 @@ def calc(first, second, operation):
 
 numberOne = int(input("Enter the first number: "))
 numberTwo = int(input("Enter the second: "))
+
+print(calc(numberOne, numberTwo))
+
