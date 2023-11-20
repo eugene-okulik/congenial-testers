@@ -15,7 +15,7 @@ def calc(func):
 
 
 @calc
-def ass(first, second, operation):
+def calc(first, second, operation):
     if operation == '+':
         return first + second
     elif operation == '-':
