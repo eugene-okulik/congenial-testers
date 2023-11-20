@@ -18,9 +18,9 @@ knigi = [
     Books('Забавная Приключение', 'Анна Петрова', 99, 7321, True)
 ]
 for book in knigi:
-    reserved_status = ', зарезевирована' if school_book.is_reserved else ''
+    reserved_status = ', зарезевирована' if book.is_reserved else ''
     print(f"Название: {book.book_name}, Автор: {book.author}, cтраниц: {book.pages_count}, "
-              f"материал: {book.page_material}, зарезервирована"
+              f"материал: {book.page_material}{reserved_status}"
           )
 
 
