@@ -16,7 +16,7 @@ knigi = [
     Books('Необычная Книга', 'Анна Иванова', 111, 7321, False),
     Books('Сумасшедшая История', 'Питер Джонсон', 99, 7321, False),
     Books('Забавная Приключение', 'Анна Петрова', 99, 7321, True)
-    ]
+        ]
 
 for book in knigi:
     if book.is_reserved:
@@ -43,7 +43,7 @@ school_books = [
     Schoolbook('Писатели 20-го века', 'Абоба', 222, 9876, False, 'Русская литература', 5, True),
     Schoolbook('Оптика', 'Автор', 222, 9876, False, 'Физика', 11, True),
     Schoolbook('Спина болеть не будет', 'А. Невский', 123, 9876, True, 'Физкультура', 7, True),
-    ]
+            ]
 for school_book in school_books:
     if school_book.is_reserved:
         print(f"Название: {school_book.book_name}, Автор: {school_book.author}, cтраниц: {school_book.pages_count}, "
