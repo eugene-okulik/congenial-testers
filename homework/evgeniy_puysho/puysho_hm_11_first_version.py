@@ -20,7 +20,7 @@ knigi = [
 for book in knigi:
     reserved_status = ', зарезевирована' if book.is_reserved else ''
     print(f"Название: {book.book_name}, Автор: {book.author}, cтраниц: {book.pages_count}, "
-              f"материал: {book.page_material}{reserved_status}"
+          f"материал: {book.page_material}{reserved_status}"
           )
 
 
@@ -42,5 +42,5 @@ school_books = [
 for school_book in school_books:
     reserved_status = ', зарезевирована' if school_book.is_reserved else ''
     print(f"Название: {school_book.book_name}, Автор: {school_book.author}, cтраниц: {school_book.pages_count}, "
-              f"предмет: {school_book.subject}, класс: {school_book.grade}{reserved_status}"
+          f"предмет: {school_book.subject}, класс: {school_book.grade}{reserved_status}"
           )
