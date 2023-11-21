@@ -16,7 +16,7 @@ my_dict['list'].append(60)
 del my_dict['list'][1]
 
 # Добавление новой пары ключ-значение в словарь, хранящийся под ключом 'dict'
-my_dict['dict']['i am a tuple,'] = 'value'
+my_dict['dict'][('i am a tuple,')] = 'value'
 
 # Удаление элемента с ключом 'b'
 del my_dict['dict']['b']
