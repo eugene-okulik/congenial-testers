@@ -1,5 +1,5 @@
 # Using slices and the index method, get a number from each line with the result,
-# add 10 to the resulting number, print the result of the addition. The functions
+# add 10 to the resulting number, print the result of the addition. The functions.py
 # should be used.
 def calc(string):
     result = string.split()[-1]
