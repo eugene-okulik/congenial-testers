@@ -3,9 +3,10 @@ import datetime
 from functions import read_file, find_date
 
 
-base_path = os.path.dirname(__file__)
-home_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
-need_file_path = os.path.join(home_path, 'eugeny_okulik', 'hw_13', 'data.txt')
+# base_path = os.path.dirname(__file__)
+# home_path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+# need_file_path = os.path.join(home_path, 'eugeny_okulik', 'hw_13', 'data.txt')
+need_file_path = os.path.join(os.path.dirname(__file__), '..', '..', 'eugeny_okulik', 'hw_13', 'data.txt')
 
 for string in read_file(need_file_path):
     if string.startswith('1'):
