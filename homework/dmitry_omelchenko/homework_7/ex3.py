@@ -12,3 +12,4 @@ lines = [
 
 for line in lines:
     process_result(line)
+    
