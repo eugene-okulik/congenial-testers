@@ -29,9 +29,3 @@ for data_line in read_file(okulik_file_path):
 
 
 read_file(okulik_file_path)
-
-
-
-
-
-
