@@ -22,7 +22,7 @@ for data_line in read_file(okulik_file_path):
     if number_in_line == '1':
         print(f'Через неделю от даты: "{date_in_line}" будет {python_date + datetime.timedelta(weeks=1)}')
     elif number_in_line == '2':
-        print(f'День недели у даты: "{date_in_line}" будет - {python_date.strftime('%A')}')
+        print(f'День недели у даты: "{date_in_line}" будет - {python_date.strftime("%A")}')
     else:
         now = datetime.datetime.now()
         print(f'Дата: "{date_in_line}" была {(datetime.datetime.now() - python_date).days} дней назад')
