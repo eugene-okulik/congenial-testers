@@ -30,9 +30,6 @@ def func_operation(calc):
     return wrapper
 
 
-operation = func_operation
-
-
 @func_operation
 def calc(first, second, operation):
     if operation == '+':
