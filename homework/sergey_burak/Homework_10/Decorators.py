@@ -14,18 +14,19 @@
 #     если второе больше первого - деление первого на второе
 #     если одно из чисел отрицательное - умножение
 
-def func_operation(*args):
+def func_operation(calc):
     def wrapper():
         first = float(input("Введите первое число: "))
         second = float(input("Введите второе число: "))
         if first < 0 or second < 0:
-            return first * second
-        if first == second:
-            return first + second
-        if first > second:
-            return first - second
-        if first < second:
-            return first / second
+            operation = '*'
+        elif first == second:
+            operation = '+'
+        elif first > second:
+            operation = '-'
+        elif first < second:
+            operation = '/'
+        return calc(first, second, operation)
     return wrapper
 
 
