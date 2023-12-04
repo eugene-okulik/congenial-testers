@@ -15,19 +15,21 @@
 #     если одно из чисел отрицательное - умножение
 
 def func_operation(*args):
-    if first < 0 or second < 0:
-        return first * second
-    if first == second:
-        return first + second
-    if first > second:
-        return first - second
-    if first < second:
-        return first / second
+    def wrapper():
+        first = float(input("Введите первое число: "))
+        second = float(input("Введите второе число: "))
+        if first < 0 or second < 0:
+            return first * second
+        if first == second:
+            return first + second
+        if first > second:
+            return first - second
+        if first < second:
+            return first / second
+    return wrapper
 
 
-first = float(input("Введите первое число: "))
-second = float(input("Введите второе число: "))
-operation = func_operation()
+operation = func_operation
 
 
 @func_operation
@@ -42,4 +44,4 @@ def calc(first, second, operation):
         return first * second
 
 
-print(calc)
+print(calc())
