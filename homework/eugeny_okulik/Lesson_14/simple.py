@@ -2,6 +2,7 @@ import random
 import os
 import json
 
+
 def calc(x, y):
     return x / y
 
