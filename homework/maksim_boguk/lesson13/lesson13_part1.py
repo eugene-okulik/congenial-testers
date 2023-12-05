@@ -1,31 +1,36 @@
 import datetime
+import os
 
-# проблема в том что код не рабочий) Он должен отрабатыватся без ошибок?
+current_dir = os.path.dirname(__file__)
+hw_dir = os.path.dirname(os.path.dirname(current_dir))
+path = os.path.join(hw_dir, 'eugeny_okulik', 'Lesson_13', 'file.txt')
+print(path)
 
-# Открываем файл
-with open('homework/eugeny_okulik/hw_13/data.txt', 'r') as file:
-    lines = file.readlines()
 
-# Проходим по каждой строке
-for line in lines:
-    parts = line.split(' - ')  # Разделяем строку на части по тире
-    date_part = parts[0]  # Получаем часть строки с датой
-    action_part = parts[1]  # Получаем часть строки с действием
+# теперь в ошибку не валится но не понимаю как функцию запустить, если через read_file(path или file_path) - падает
+# ошибка
 
-    # Разделяем дату и время
-    date_string = date_part.split(' ')[0]  # Получаем только часть строки с датой
-    date = datetime.datetime.strptime(date_string, '%Y-%m-%d')  # Преобразуем строку в объект datetime
+def read_file(file_path):
+    with open(file_path, 'r') as file:
+        for line in file.readlines():
+            line = line.strip()  # Удаляем пробелы и символы новой строки в конце
+            parts = line.split(' - ')
+            date_part = parts[0]
 
-    # Выполняем действие в зависимости от номера
-    if date_part.startswith('1.'):
-        # Добавляем неделю к дате и выводим результат
-        new_date = date + datetime.timedelta(weeks=1)
-        print(new_date.strftime('%Y-%m-%d %H:%M:%S.%f'))
-    elif date_part.startswith('2.'):
-        # Выводим день недели
-        print(date.strftime('%A'))
-    elif date_part.startswith('3.'):
-        # Вычисляем количество дней между этой датой и сегодняшней
-        today = datetime.datetime.now()
-        days_ago = (today - date).days
-        print(days_ago)
+            date_string = date_part.split(' ')[0]
+
+            try:
+                date = datetime.datetime.strptime(date_string, '%Y-%m-%d')
+            except ValueError:
+                print('Неверный формат даты:', date_string)
+                continue  # Переходим к следующей строке файла в случае ошибки
+
+            if date_part.startswith('1.'):
+                new_date = date + datetime.timedelta(weeks=1)
+                print('Новая дата:', new_date.strftime('%Y-%m-%d %H:%M:%S.%f'))
+            elif date_part.startswith('2.'):
+                print('День недели:', date.strftime('%A'))
+            elif date_part.startswith('3.'):
+                today = datetime.datetime.now()
+                days_ago = (today - date).days
+                print('Количество дней между этой датой и сегодняшней:', days_ago)
