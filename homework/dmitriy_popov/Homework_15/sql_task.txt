@@ -11,10 +11,14 @@ INSERT INTO books (title, taken_by_student_id) VALUES ('Котоматика', '
 Предметы:
 INSERT INTO subjets (title) VALUES ('Физкультура')
 INSERT INTO subjets (title) VALUES ('Астрономия')
+
+Занятия:
 INSERT INTO lessons (title, subject_id) VALUES ('Мощный дыгыдык', '4')
 INSERT INTO lessons (title, subject_id) VALUES ('Прыжки', '4')
 INSERT INTO lessons (title, subject_id) VALUES ('Марс в Юпитере', '5')
 INSERT INTO lessons (title, subject_id) VALUES ('Венера в Сатурне', '5')
+
+Оценки:
 INSERT INTO marks (value, lesson_id, student_id) VALUES ('5','5','23')
 INSERT INTO marks (value, lesson_id, student_id) VALUES ('4','6','23')
 INSERT INTO marks (value, lesson_id, student_id) VALUES ('2','3','23')
