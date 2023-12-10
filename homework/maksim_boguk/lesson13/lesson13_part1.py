@@ -1,36 +1,29 @@
-import datetime
 import os
+import datetime
 
-current_dir = os.path.dirname(__file__)
+# Заменяем __file__ на путь к текущему файлу
+current_dir = os.path.dirname(os.path.abspath(__file__))
 hw_dir = os.path.dirname(os.path.dirname(current_dir))
-path = os.path.join(hw_dir, 'eugeny_okulik', 'Lesson_13', 'file.txt')
-print(path)
+path = os.path.join(hw_dir, 'eugeny_okulik', 'hw_13', 'data.txt')
 
-
-# теперь в ошибку не валится но не понимаю как функцию запустить, если через read_file(path или file_path) - падает
-# ошибка
 
 def read_file(file_path):
     with open(file_path, 'r') as file:
-        for line in file.readlines():
-            line = line.strip()  # Удаляем пробелы и символы новой строки в конце
-            parts = line.split(' - ')
-            date_part = parts[0]
+        for data_line in file:
+            line_with_date = data_line.strip().split(" - ")
+            number_in_line, date_in_line = line_with_date[0].split(". ")
+            date_format = '%Y-%m-%d %H:%M:%S.%f' if len(date_in_line) > 10 else '%Y-%m-%d'
+            python_date = datetime.datetime.strptime(date_in_line, date_format)
 
-            date_string = date_part.split(' ')[0]
-
-            try:
-                date = datetime.datetime.strptime(date_string, '%Y-%m-%d')
-            except ValueError:
-                print('Неверный формат даты:', date_string)
-                continue  # Переходим к следующей строке файла в случае ошибки
-
-            if date_part.startswith('1.'):
-                new_date = date + datetime.timedelta(weeks=1)
-                print('Новая дата:', new_date.strftime('%Y-%m-%d %H:%M:%S.%f'))
-            elif date_part.startswith('2.'):
-                print('День недели:', date.strftime('%A'))
-            elif date_part.startswith('3.'):
+            if number_in_line == '1':
+                new_date = python_date + datetime.timedelta(weeks=1)
+                print(f'Через неделю от даты: "{date_in_line}" будет {new_date.strftime(date_format)}')
+            elif number_in_line == '2':
+                print(f'День недели у даты: "{date_in_line}" будет - {python_date.strftime("%A")}')
+            elif number_in_line == '3':
                 today = datetime.datetime.now()
-                days_ago = (today - date).days
-                print('Количество дней между этой датой и сегодняшней:', days_ago)
+                days_ago = (today - python_date).days
+                print(f'Дата: "{date_in_line}" была {days_ago} дней назад')
+
+
+read_file(path)
