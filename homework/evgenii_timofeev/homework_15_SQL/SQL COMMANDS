@@ -1,0 +1,28 @@
+1) INSERT INTO students (name, second_name, group_id) VALUES ('Evgenii', 'Timofeev', '3')
+2) INSERT INTO books (title, taken_by_student_id) VALUES ('Necronomicon. Part 2', '24'), ('Necronomicon. Part 3', '24')
+3) INSERT INTO `groups` (title, start_date, end_date) VALUES ('УГА БУГА', 'Декабрь 2023', 'Май 2024')
+   UPDATE students SET group_id = 4 WHERE id = 24
+4) INSERT INTO subjets (title) VALUES ('Угабугаведение'), ('Введение в первобытный строй')
+5) INSERT INTO lessons  (title, subject_id)  VALUES ('Воскресенье', '7'), ('Понедельник', '7'), ('Суббота', '8'),
+('Вторник', '8')
+6) INSERT INTO marks  (value, lesson_id, student_id) VALUES ('5', '15', '24'),
+('4', '16', '24'), ('53', '17', '24'), ('2', '18', '24')
+
+
+1) SELECT value FROM books WHERE student_id = 24
+2) SELECT title FROM books WHERE taken_by_student_id = 24
+3)SELECT
+    s.name,
+    s.second_name,
+    g.title AS group_title,
+    b.title AS book_title,
+    m.value AS mark_value,
+    l.title AS lesson_title,
+    subj.title AS subject_title
+FROM students s
+LEFT JOIN `groups` g ON s.group_id = g.id
+LEFT JOIN books b ON s.id = b.taken_by_student_id
+LEFT JOIN marks m ON s.id = m.student_id
+LEFT JOIN lessons l ON m.lesson_id = l.id
+LEFT JOIN subjets subj ON l.subject_id = subj.id
+WHERE s.id = 24;
