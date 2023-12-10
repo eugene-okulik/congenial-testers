@@ -1,3 +1,9 @@
+Создать группу:
+INSERT INTO `groups` (title, start_date, end_date) VALUES ('Котики', 'Дек 2023', 'Дек 2024')
+
+Создать сутдента:
+INSERT INTO students (name, second_name, group_id) VALUES ('Марсик', 'Котофеев', '3')
+
 Книги:
 INSERT INTO books (title, taken_by_student_id) VALUES ('Как ладить с кожанными мешками', '23')
 INSERT INTO books (title, taken_by_student_id) VALUES ('Котоматика', '23')
