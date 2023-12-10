@@ -1,0 +1,32 @@
+Книги:
+INSERT INTO books (title, taken_by_student_id) VALUES ('Как ладить с кожанными мешками', '23')
+INSERT INTO books (title, taken_by_student_id) VALUES ('Котоматика', '23')
+
+Предметы:
+INSERT INTO subjets (title) VALUES ('Физкультура')
+INSERT INTO subjets (title) VALUES ('Астрономия')
+INSERT INTO lessons (title, subject_id) VALUES ('Мощный дыгыдык', '4')
+INSERT INTO lessons (title, subject_id) VALUES ('Прыжки', '4')
+INSERT INTO lessons (title, subject_id) VALUES ('Марс в Юпитере', '5')
+INSERT INTO lessons (title, subject_id) VALUES ('Венера в Сатурне', '5')
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('5','5','23')
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('4','6','23')
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('2','3','23')
+INSERT INTO marks (value, lesson_id, student_id) VALUES ('3','4','23')
+
+
+Все оценки студента:
+SELECT * FROM marks WHERE student_id = '23'
+
+Все книги, которые находятся у студента:
+SELECT * FROM books WHERE taken_by_student_id = '23'
+
+Вывести все по студенту:
+SELECT s.id, s.name, s.second_name, g.title AS 'Group name', b.title AS 'Book name', l.title AS 'Lesson name', s2.title AS 'Subject name', m.value AS 'Оценка'
+FROM students s
+JOIN `groups` g ON s.group_id = g.id
+JOIN books b ON b.taken_by_student_id = s.id
+JOIN marks m ON m.student_id = s.id
+JOIN lessons l ON m.lesson_id = l.id
+JOIN subjets s2 ON l.subject_id = s2.id
+WHERE s.id = '23'
