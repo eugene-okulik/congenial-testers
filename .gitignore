@@ -5,3 +5,5 @@ venv
 .venv
 __pycache__
 qodana.yaml
+creds.py
+.env
