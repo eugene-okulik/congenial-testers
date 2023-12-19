@@ -27,7 +27,7 @@ books = [
     Book('Мы', 'Евгкний Замятин', 224, 83495890329, False),
     Book('1984', 'Джордж Оруэл', 345, 98095890329, False),
     Book('Matrix', 'br. or sist. Wachkowski', 1145, 980943890329, False)
-    ]
+]
 books[0].reserved = True
 
 for book in books:
@@ -56,7 +56,7 @@ school_books = [
                'Математика', 10, True),
     SchoolBook('История Беларуси', 'Сидорик С.С.', 567, 437572320, False,
                'История', 11, True)
-    ]
+]
 
 school_books[2].reserved = True
 # Название: Алгебра, Автор: Иванов, страниц: 200, предмет: Математика, класс: 9, зарезервирована
