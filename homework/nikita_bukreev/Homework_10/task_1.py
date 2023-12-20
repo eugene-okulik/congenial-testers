@@ -1,10 +1,6 @@
-# Решил использовать мачкейс вместо ифов в функции калк
-# Но с самим декоратором не разобрался, выходит кривой реультат в последнем условии - UPD Разобрался) нужно было
-# проверку на отрицательность самой первой сделать...)
-# Буду благодарен за подсказки, т.к. очень кривенько вышло=)
 
 def custom_decorator(funk):
-    def wrapper(first, second, operation):   # operation вообще не подсвечивается (тип не используется)
+    def wrapper(first, second):   # operation вообще не подсвечивается (тип не используется)
         if (first < 0) or (second < 0):
             result = funk(first, second, '*')
             return result
@@ -36,7 +32,7 @@ def calc(first, second, operation):
             print('Символ не является математическим символом')
 
 
-print(calc(10, 10, '+-*/'))
-print(calc(12, 11, '+-*/'))
-print(calc(12, 13, '+-*/'))
-print(calc(-12, 11, '+-*/'))
+print(calc(10, 10))
+print(calc(12, 11))
+print(calc(12, 13))
+print(calc(-12, 11))

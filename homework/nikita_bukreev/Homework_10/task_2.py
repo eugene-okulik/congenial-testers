@@ -1,5 +1,3 @@
-# Получилось очень колхозно-костыльное решение чтобы соблюсти все условия задачи(
-# Буду благодарен за подсказки, которые помогут сделать код чище и понятнее
 
 PRICE_LIST = '''тетрадь 50р
 книга 200р
@@ -10,11 +8,10 @@ PRICE_LIST = '''тетрадь 50р
 рюкзак 500р'''
 
 
-def separate_price(price):
-    for line in price.split('\n'):
-        new_line = line[0:-2].split()
-        yield new_line[0], int(new_line[1])
-
-
-my_price = dict([x for x in separate_price(PRICE_LIST)])
+my_price = {line[0:-2].split()[0]: int(line[0:-2].split()[1]) for line in PRICE_LIST.split('\n')}
 print(my_price)
+
+new_dict = {}
+for line in PRICE_LIST.split('\n'):
+    new_line = line[0:-2].split()
+    new_dict[new_line[0]] = int(new_line[1])
