@@ -6,4 +6,4 @@
 /etc/passwd - "-", обчный файл
 /proc/mounts - l, символьная ссылка
 /bin/ls - "-", обчный файл
-/bin/zcat - /bin/zcat
+/bin/zcat - "-", обчный файл
