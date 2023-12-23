@@ -21,13 +21,13 @@ class Bouquet:
     def __init__(self):
         self.flowers = []
 
-    def add_flower(self, flower):
-        self.flowers.append(flower)
+    def add_flower(self, flower1):
+        self.flowers.append(flower1)
 
     def calculate_withing_time(self):
         if not self.flowers:
             return 0
-        total_lifespan = sum(flower.lifespan for flower in self.flowers)
+        total_lifespan = sum(flower1.lifespan for flower1 in self.flowers)
         return total_lifespan / len(self.flowers)
 
     def sort_by_parameter(self, parameter):
@@ -41,12 +41,12 @@ class Bouquet:
             self.flowers.sort(key=lambda x: x.cost, reverse=True)
 
     def find_flower_by_parameter(self, parameter, value):
-        found_flowers = []
+        found_flowers1 = []
         if parameter == 'lifespan':
-            for flower in self.flowers:
-                if flower.lifespan == value:
-                    found_flowers.append(flower)
-        return found_flowers
+            for flower2 in self.flowers:
+                if flower2.lifespan == value:
+                    found_flowers1.append(flower2)
+        return found_flowers1
 
 
 rose1 = Rose('red', 90, 25, 10, 7)
