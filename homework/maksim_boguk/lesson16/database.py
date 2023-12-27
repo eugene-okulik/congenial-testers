@@ -10,54 +10,43 @@ db = mysql.connect(
 
 cursor = db.cursor(dictionary=True)
 
-insert_query = "INSERT INTO students (name, second_name, group_id) VALUES (%s, %s, %s)"
+# 1. Создаем группу
+cursor.execute(
+    "INSERT INTO `groups` (title, start_date, end_date) VALUES (%s, %s, %s)",
+    ("Админы", "Январь 2020", "Февраль 2021"),
+)
+group_id = cursor.lastrowid  # Получаем id только что созданной группы
+
+
+# 2. Добавляем студента в созданную группу
+cursor.execute(
+    "INSERT INTO students (name, second_name, group_id) VALUES (%s, %s, %s)",
+    ("Максим", "Богук", group_id),
+)
+student_id = cursor.lastrowid  # Получаем id только что созданного студента
+
+# 3. Добавляем книги, взятые студентом
 cursor.executemany(
-    insert_query, [
-        ('Гарри', 'Поттер', 1),
-        ('Гарри1', 'Поттер2', 1),
-        ('Гарри2', 'Поттер3', 1)
-    ]
+    "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)",
+    [("Онегин", student_id), ("Капитан", student_id)],
 )
 
-insert_query1 = "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)"
+# 4. Добавляем предметы и занятия
+cursor.execute("INSERT INTO subjets (title) VALUES (%s)", ("Зельеварение",))
+subject_id = cursor.lastrowid
 cursor.executemany(
-    insert_query, [
-        ('Война и мир', 48),
-        ('Остров сокровищ', 49),
-    ]
+    "INSERT INTO lessons (title, subject_id) VALUES (%s, %s)",
+    [("Суббота", subject_id), ("Воскресенье", subject_id)],
 )
 
-insert_query = "INSERT INTO `groups` (title, start_date, end_date) VALUES (%s, %s, %s)"
+# 5. Добавляем оценки студенту
 cursor.executemany(
-    insert_query, [
-        ('Lesson JavaScript', 'may 23', 'jun 23'),
-    ]
+    "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)",
+    [("2", 1, student_id), ("3", 2, student_id)],
 )
 
-insert_query = "INSERT INTO subjets (title) VALUES (%s)"
-cursor.executemany(
-    insert_query, [
-        ('Химия',),
-        ('Физика',),
-        ('Музыка',)
-    ]
-)
-
-insert_query = "INSERT INTO lessons (title, subject_id) VALUES (%s, %s)"
-cursor.executemany(
-    insert_query, [
-        ('Friday', 5),
-        ('Wednesday', 4)
-    ]
-)
-
-insert_query = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)"
-cursor.executemany(
-    insert_query, [
-        (3, 25, 48),
-        (3, 26, 49)
-    ]
-)
+# Сохраняем изменения
+db.commit()
 
 # все оценки студента
 select_sql1 = '''
@@ -88,5 +77,6 @@ JOIN subjets s2 ON l.subject_id = s2.id
 WHERE s.id = '12'
 '''
 
-db.commit()
+# Закрываем соединение
+cursor.close()
 db.close()
