@@ -49,7 +49,7 @@ db.commit()
 
 # все оценки студента
 select_sql1 = '''
-select * from students join marks on students.id=marks.student_id 
+select * from students join marks on students.id=marks.student_id
 where students.second_name = 'Boguk'
 '''
 cursor.execute(select_sql1)
