@@ -17,7 +17,6 @@ cursor.execute(
 )
 group_id = cursor.lastrowid  # Получаем id только что созданной группы
 
-
 # 2. Добавляем студента в созданную группу
 cursor.execute(
     "INSERT INTO students (name, second_name, group_id) VALUES (%s, %s, %s)",
@@ -66,7 +65,7 @@ print(cursor.fetchall())
 
 # Для вашего студента выведите всё, что о нем есть в базе
 select_sql3 = '''
-SELECT s.id, s.name, s.second_name, g.title AS 'Group name', b.title AS 'Book name', l.title 
+SELECT s.id, s.name, s.second_name, g.title AS 'Group name', b.title AS 'Book name', l.title
 AS 'Lesson name', s2.title AS 'Subject name', m.value AS 'Оценка'
 FROM students s
 JOIN `groups` g ON s.group_id = g.id
