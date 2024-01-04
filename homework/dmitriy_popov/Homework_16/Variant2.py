@@ -19,12 +19,14 @@ def query_execute(query_string, cursor_bd):
 
 group_id = query_execute(
     f"INSERT INTO `groups` (title, start_date, end_date) "
-    f"VALUES ('{input("name of group: ")}', '{input("date start: ")}', '{input("date end: ")}')", cursor)
+    f"VALUES ('{input("name of group: ")}', '{input("date start: ")}', '{input("date end: ")}')", cursor
+)
 
 
 student_id = query_execute(
     f"INSERT INTO students (name, second_name, group_id) "
-    f"VALUES ('{input("student_name: ")}', '{input("student_second_name: ")}', {group_id})", cursor)
+    f"VALUES ('{input("student_name: ")}', '{input("student_second_name: ")}', {group_id})", cursor
+)
 
 
 query_books = "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)"
@@ -42,10 +44,12 @@ subject2_id = query_execute(f"INSERT INTO subjets (title) VALUES ('{input("subje
 
 lesson1_id = query_execute(
     f"INSERT INTO lessons (title, subject_id) "
-    f"VALUES ('{input('name of lesson1: ')}', {subject1_id})", cursor)
+    f"VALUES ('{input('name of lesson1: ')}', {subject1_id})", cursor
+)
 lesson2_id = query_execute(
     f"INSERT INTO lessons (title, subject_id) "
-    f"VALUES ('{input('name of lesson2: ')}', {subject2_id})", cursor)
+    f"VALUES ('{input('name of lesson2: ')}', {subject2_id})", cursor
+)
 
 
 marks_query = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)"
