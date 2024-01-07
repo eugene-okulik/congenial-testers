@@ -30,7 +30,7 @@
 
 5. Поиск сообщений после определенной даты в файле:
    python script.py --file path/to/logfile.log --after 2021-01-01
-   
+
 Заметки:
 Для помощи можно использовать команду: python script.py --help
 """
