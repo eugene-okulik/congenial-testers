@@ -1,59 +1,96 @@
-from connect import db_query
+import mysql.connector as mysql
 
+
+db = mysql.connect(
+    host='db-mysql-fra1-09136-do-user-7651996-0.b.db.ondigitalocean.com',
+    port=25060,
+    user='st4',
+    passwd='AVNS_ANI6HFK07yLk4d9l4Nq',
+    database='st4'
+)
+cursor = db.cursor(dictionary=True)
 
 # Создайте студента (student)
-query1 = "INSERT INTO students (name, second_name, group_id) values ('Nikita1', 'Bukreev1', 1)"
-db_query(query1)
-query0 = "SELECT id FROM students order by id desc limit 1"
-last_user_id = [item['id'] for item in db_query(query0)][0]
-print(last_user_id)
+query1 = "INSERT INTO students (name, second_name, group_id) values ('Nikita2', 'Bukreev2', 1)"
+cursor.execute(query1)
+student_id = cursor.lastrowid
 
 # Создайте несколько книг (books) и укажите, что ваш созданный студент взял их
-query2 = f'''INSERT INTO books (title, taken_by_student_id) values ('SQL for beginners1', {last_user_id}),
-('AZBYKA1', {last_user_id}), ('C#1', {last_user_id})'''
-db_query(query2)
+query2 = f'''INSERT INTO books (title, taken_by_student_id) values ('SQL for beginners2', {student_id}),
+('AZBYKA2', {student_id}), ('C#2', {student_id})'''
+cursor.execute(query2)
 
 # Создайте группу (group) и определите своего студента туда
-query3_1 = "INSERT INTO `groups` (title, start_date, end_date) values ('st4_1', 'october 2123', 'february 2124')"
-query3_2 = f'''update students set group_id = (select id from `groups` where title = 'st4_1')
-where id = {last_user_id}'''
-db_query(query3_1)
-db_query(query3_2)
+query3_1 = "INSERT INTO `groups` (title, start_date, end_date) values ('st4_2', 'october 2123_2', 'february 2124_2')"
+cursor.execute(query3_1)
+group_id = cursor.lastrowid
+
+query3_2 = f'''update students set group_id = (select id from `groups` where id = {group_id})
+where id = {student_id}'''
+cursor.execute(query3_2)
 
 # Создайте несколько учебных предметов (subjects)
-query4 = "INSERT INTO subjets (title) values ('QA1'), ('Dev1'), ('PM1')"
-db_query(query4)
+query4_1 = "INSERT INTO subjets (title) values ('QA2')"
+cursor.execute(query4_1)
+subject_id_one = cursor.lastrowid
+
+query4_2 = "INSERT INTO subjets (title) values ('Dev2')"
+cursor.execute(query4_2)
+subject_id_two = cursor.lastrowid
+
+query4_3 = "INSERT INTO subjets (title) values ('PM2')"
+cursor.execute(query4_3)
+subject_id_three = cursor.lastrowid
 
 # Создайте по два занятия для каждого предмета (lessons)
-query5 = '''INSERT INTO lessons (title, subject_id) values
-('Весь нобрь1', (select id from subjets where title = 'QA1')),
-('Весь декабрь1', (select id from subjets where title = 'QA1')),
-('Весь январь1', (select id from subjets where title = 'Dev1')),
-('Весь февраль1', (select id from subjets where title = 'Dev1')),
-('Весь март1', (select id from subjets where title = 'PM1')),
-('Весь апрель1', (select id from subjets where title = 'PM1'))'''
-db_query(query5)
+query5_1 = f"INSERT INTO lessons (title, subject_id) values ('Весь нобрь2', {subject_id_one})"
+cursor.execute(query5_1)
+lesson_id_one = cursor.lastrowid
+
+query5_2 = f"INSERT INTO lessons (title, subject_id) values ('Весь декабрь2', {subject_id_one})"
+cursor.execute(query5_2)
+lesson_id_two = cursor.lastrowid
+
+query5_3 = f"INSERT INTO lessons (title, subject_id) values ('Весь январь2', {subject_id_two})"
+cursor.execute(query5_3)
+lesson_id_three = cursor.lastrowid
+
+query5_4 = f"INSERT INTO lessons (title, subject_id) values ('Весь февраль2', {subject_id_two})"
+cursor.execute(query5_4)
+lesson_id_four = cursor.lastrowid
+
+query5_5 = f"INSERT INTO lessons (title, subject_id) values ('Весь март2', {subject_id_three})"
+cursor.execute(query5_5)
+lesson_id_five = cursor.lastrowid
+
+query5_6 = f"INSERT INTO lessons (title, subject_id) values ('Весь апрель2', {subject_id_three})"
+cursor.execute(query5_6)
+lesson_id_six = cursor.lastrowid
 
 # Поставьте своему студенту оценки (marks) для всех созданных вами занятий
 query6 = f'''INSERT INTO marks (value, lesson_id, student_id)
-values ('100500', (select id from lessons where title = 'Весь нобрь1'), {last_user_id}),
-('8', (select id from lessons where title = 'Весь декабрь1'), {last_user_id}),
-('800', (select id from lessons where title = 'Весь январь1'), {last_user_id}),
-('555', (select id from lessons where title = 'Весь февраль1'), {last_user_id}),
-('35', (select id from lessons where title = 'Весь март1'), {last_user_id}),
-('53', (select id from lessons where title = 'Весь апрель1'), {last_user_id})'''
-db_query(query6)
+values ('100500_2', {lesson_id_one}, {student_id}),
+('8_2', {lesson_id_two}, {student_id}),
+('800_2', {lesson_id_three}, {student_id}),
+('555_2', {lesson_id_four}, {student_id}),
+('35_2', {lesson_id_five}, {student_id}),
+('53_2', {lesson_id_six}, {student_id})'''
+cursor.execute(query6)
+
+db.commit()
 
 # Все оценки студента
 query7 = f'''SELECT l.title as 'Занятие', s.title as 'Предмет', m.value as 'Оценка' from marks m
 JOIN lessons l on m.lesson_id = l.id
 JOIN subjets s on l.subject_id = s.id
-WHERE m.student_id = {last_user_id}'''
-print(db_query(query7))
+WHERE m.student_id = {student_id}'''
+cursor.execute(query7)
+print(cursor.fetchall())
 
 # Все книги, которые находятся у студента
-query8 = f"select title as 'Книги' from books where taken_by_student_id = {last_user_id}"
-print(db_query(query8))
+query8 = f"select title as 'Книги' from books where taken_by_student_id = {student_id}"
+cursor.execute(query8)
+print(cursor.fetchall())
 
 # Для вашего студента выведите всё, что о нем есть в базе: группа, книги,
 # оценки с названиями занятий и предметов (всё одним запросом с использованием Join)
@@ -65,5 +102,9 @@ JOIN books b on b.taken_by_student_id = s.id
 JOIN marks m on m.student_id = s.id
 JOIN lessons l on l.id = m.lesson_id
 JOIN subjets s2 on s2.id = l.subject_id
-WHERE s.id = {last_user_id}'''
-print(db_query(query9))
+WHERE s.id = {student_id}'''
+cursor.execute(query9)
+print(cursor.fetchall())
+
+cursor.close()
+db.close()
