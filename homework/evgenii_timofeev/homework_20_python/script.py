@@ -9,9 +9,9 @@
 Скрипт запускается из командной строки с различными аргументами для фильтрации логов.
 - -f, --file: Указание пути к файлу лога.
 - -d, --dir: Указание папки с файлами логов.
-- -t, --date: Фильтрация сообщений по определенной дате (формат YYYY-MM-DD).
-- -b, --before: Фильтрация сообщений до указанной даты.
-- -a, --after: Фильтрация сообщений после указанной даты.
+- -t, --date: Фильтрация сообщений по определенной дате (формат YYYY-MM-DD HH:MM:SS.mmm).
+- -b, --before: Фильтрация сообщений до указанной даты (формат YYYY-MM-DD HH:MM:SS.mmm).
+- -a, --after: Фильтрация сообщений после указанной даты (формат YYYY-MM-DD HH:MM:SS.mmm).
 - -s, --text: Поиск текста в сообщениях.
 - -o, --output: Формат вывода результатов ('brief' для краткого и 'full' для полного).
 
@@ -20,16 +20,19 @@
    python script.py --file path/to/logfile.log --text "ошибка"
 
 2. Поиск сообщений до определенной даты в папке с логами:
-   python script.py --dir path/to/logfiles --before 2021-12-31
+   python script.py --dir path/to/logfiles --before 2022-02-03 09:07:31.159
 
 3. Поиск сообщений с определенным текстом и вывод только первых 300 символов каждого сообщения:
    python script.py --file path/to/logfile.log --text "ошибка" --output brief
 
 4. Поиск сообщений в определенный день:
-   python script.py --file path/to/logfile.log --date 2021-12-31
+   python script.py --file path/to/logfile.log --date 2022-02-03 09:07:31.159
 
 5. Поиск сообщений после определенной даты в файле:
-   python script.py --file path/to/logfile.log --after 2021-01-01
+   python script.py --file path/to/logfile.log --after 2022-02-03 09:08:31.159
+
+6. Поиск сообщений по отсутствию текста:
+   python script.py --file path/to/logfile.log --text "Нужное слово" --exclude-text "Лишнее слово"
 
 Заметки:
 Для помощи можно использовать команду: python script.py --help
@@ -48,21 +51,25 @@ def get_args() -> argparse.Namespace:
         "-d", "--dir", dest="dir", type=str, help="Папка с файлами логов"
     )
     parser.add_argument(
-        "-t", "--date", dest="date", type=str, help="Дата сообщения (YYYY-MM-DD)"
+        "-t",
+        "--date",
+        dest="date",
+        type=str,
+        help="Дата сообщения (YYYY-MM-DD HH:MM:SS.mmm)",
     )
     parser.add_argument(
         "-b",
         "--before",
         dest="before",
         type=str,
-        help="Дата до которой искать сообщения (YYYY-MM-DD)",
+        help="Дата до которой искать сообщения (YYYY-MM-DD HH:MM:SS.mmm)",
     )
     parser.add_argument(
         "-a",
         "--after",
         dest="after",
         type=str,
-        help="Дата после которой искать сообщения (YYYY-MM-DD)",
+        help="Дата после которой искать сообщения (YYYY-MM-DD HH:MM:SS.mmm)",
     )
     parser.add_argument(
         "-s",
@@ -76,14 +83,21 @@ def get_args() -> argparse.Namespace:
         "--output",
         dest="output",
         type=str,
-        default="full",
+        default="brief",
         help="Формат вывода результатов: 'brief' или 'full'",
+    )
+    parser.add_argument(
+        "-e",
+        "--exclude-text",
+        dest="exclude_text",
+        type=str,
+        help="Текст, который должен отсутствовать в сообщениях",
     )
     return parser.parse_args()
 
 
 def parse_date(date_str: str) -> datetime.datetime:
-    return datetime.datetime.strptime(date_str, "%Y-%m-%d")
+    return datetime.datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S.%f")
 
 
 def get_blocks(filename: str) -> Generator[str, None, None]:
@@ -107,6 +121,8 @@ def filter_messages(
         if args.after and parse_date(message_date) <= parse_date(args.after):
             continue
         if args.text and args.text not in message:
+            continue
+        if args.exclude_text and args.exclude_text in message:
             continue
         yield message
 
