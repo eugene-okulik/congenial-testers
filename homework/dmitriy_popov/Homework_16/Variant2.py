@@ -18,8 +18,8 @@ def query_execute(query_string, cursor_bd):
 
 
 group_id = query_execute(
-    f"INSERT INTO `groups` (title, start_date, end_date) "
-    f"VALUES ('Димасики', '12.01.24', '12.03.24')", cursor
+    "INSERT INTO `groups` (title, start_date, end_date) "
+    "VALUES ('Димасики', '12.01.24', '12.03.24')", cursor
 )
 
 
@@ -38,8 +38,8 @@ cursor.executemany(
 )
 
 
-subject1_id = query_execute(f"INSERT INTO subjets (title) VALUES ('Предмет1')", cursor)
-subject2_id = query_execute(f"INSERT INTO subjets (title) VALUES ('Предмет2')", cursor)
+subject1_id = query_execute("INSERT INTO subjets (title) VALUES ('Предмет1')", cursor)
+subject2_id = query_execute("INSERT INTO subjets (title) VALUES ('Предмет2')", cursor)
 
 
 lesson1_id = query_execute(

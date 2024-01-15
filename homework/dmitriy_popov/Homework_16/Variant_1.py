@@ -30,11 +30,10 @@ cursor.executemany(
 )
 
 
-cursor.execute(f"INSERT INTO subjets (title) VALUES ('{input("subject1_name: ")}')")
+cursor.execute("INSERT INTO subjets (title) VALUES (%s)", (input("subject1_name: "), ))
 subject1_id = cursor.lastrowid
-cursor.execute(f"INSERT INTO subjets (title) VALUES ('{input("subject2_name: ")}')")
+cursor.execute("INSERT INTO subjets (title) VALUES (%s)", (input("subject2_name: "), ))
 subject2_id = cursor.lastrowid
-cursor.execute(f"SELECT * from subjets where id in ({subject1_id}, {subject2_id})")
 
 
 lesson1_query = "INSERT INTO lessons (title, subject_id) VALUES (%s, %s)"
@@ -57,19 +56,19 @@ cursor.executemany(
 db.commit()
 
 
-select_query_marks = f"SELECT * FROM marks WHERE student_id = {student_id}"
-cursor.execute(select_query_marks)
+select_query_marks = "SELECT * FROM marks WHERE student_id = %s"
+cursor.execute(select_query_marks, (student_id, ))
 print('Все оценки студента')
 print(cursor.fetchall())
 
 
-select_query_books = f"SELECT * FROM books WHERE taken_by_student_id = {student_id}"
-cursor.execute(select_query_books)
+select_query_books = "SELECT * FROM books WHERE taken_by_student_id = %s"
+cursor.execute(select_query_books, (student_id, ))
 print('Все книги у студента')
 print(cursor.fetchall())
 
 
-select_query = f'''
+select_query = '''
 SELECT s.id,
     s.name,
     s.second_name,
@@ -84,10 +83,11 @@ JOIN books b ON b.taken_by_student_id = s.id
 JOIN marks m ON m.student_id = s.id
 JOIN lessons l ON m.lesson_id = l.id
 JOIN subjets s2 ON l.subject_id = s2.id
-WHERE s.id = {student_id};
+WHERE s.id = %s;
 '''
+cursor.execute(select_query, (student_id, ))
 
-cursor.execute(select_query)
+
 print('Все по студенту')
 print(cursor.fetchall())
 
