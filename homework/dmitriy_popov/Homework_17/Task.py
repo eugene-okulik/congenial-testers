@@ -48,5 +48,3 @@ if __name__ == '__main__':
     diff_csv = [x for x in result if x not in data]
     for x in diff_csv:
         print(x)
-
-
