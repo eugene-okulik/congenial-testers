@@ -1,0 +1,10 @@
+
+/dev/null - с character special file
+/dev/zero - с character special file
+/dev/sda - No such file or directory
+/dev/tty - с character special file
+/root - directory
+/etc/passwd - "-" regular file
+/proc/mounts - l symbolic link
+/bin/ls - "-" regular file
+/bin/zcat - "-" regular file
