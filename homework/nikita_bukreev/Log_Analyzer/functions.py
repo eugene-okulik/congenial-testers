@@ -12,8 +12,8 @@ def parse_args():
         Example usage: {os.linesep}
         python3 args.py ../../eugeny_okulik/data/logs/rpe-api-error.2022-02-03.0.log - прочитает файл \n
         python3 args.py ../../eugeny_okulik/data/logs/ - прочитает все файлы в диерктории \n
-        python3 args.py ../../eugeny_okulik/data/logs/ "/2024-01-01 00:00:00.000/" - прочитает все файлы в диерктории и 
-        отфильтрует по дате \n
+        python3 args.py ../../eugeny_okulik/data/logs/ "/2024-01-01 00:00:00.000/" - прочитает все файлы в диерктории 
+        и отфильтрует по дате \n
         python3 args.py ../../eugeny_okulik/data/logs/rpe-api-error.2022-02-03.0.log  -t "kek lol" - найти только 
         текст \n
         python3 args.py .../../eugeny_okulik/data/logs/rpe-api-error.2022-02-03.0.log  -t "kek lol" -u "arbidol" - 
