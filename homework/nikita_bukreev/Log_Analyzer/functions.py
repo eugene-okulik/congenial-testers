@@ -12,19 +12,19 @@ def parse_args():
         Example usage: {os.linesep}
         python3 args.py ../../eugeny_okulik/data/logs/rpe-api-error.2022-02-03.0.log - прочитает файл \n
         python3 args.py ../../eugeny_okulik/data/logs/ - прочитает все файлы в диерктории \n
-        python3 args.py ../../eugeny_okulik/data/logs/ "/2024-01-01 00:00:00.000/" - прочитает все файлы в диерктории 
+        python3 args.py ../../eugeny_okulik/data/logs/ "/2024-01-01 00:00:00.000/" - прочитает все файлы в диерктории
         и отфильтрует по дате \n
-        python3 args.py ../../eugeny_okulik/data/logs/rpe-api-error.2022-02-03.0.log  -t "kek lol" - найти только 
+        python3 args.py ../../eugeny_okulik/data/logs/rpe-api-error.2022-02-03.0.log  -t "kek lol" - найти только
         текст \n
-        python3 args.py .../../eugeny_okulik/data/logs/rpe-api-error.2022-02-03.0.log  -t "kek lol" -u "arbidol" - 
+        python3 args.py .../../eugeny_okulik/data/logs/rpe-api-error.2022-02-03.0.log  -t "kek lol" -u "arbidol" -
         найти текст и исключить с другим текстом \n
-        python3 args.py ../../eugeny_okulik/data/logs/rpe-api-error.2022-02-03.0.log  -t "kek lol" -u "arbidol" -f - 
+        python3 args.py ../../eugeny_okulik/data/logs/rpe-api-error.2022-02-03.0.log  -t "kek lol" -u "arbidol" -f -
         найти текст и исключить текст и вывести необрезанный лог \n
-        python3 args.py ../../eugeny_okulik/data/logs/rpe-api-error.2022-02-03.0.log  -u "kek lol" - вывести лог в 
+        python3 args.py ../../eugeny_okulik/data/logs/rpe-api-error.2022-02-03.0.log  -u "kek lol" - вывести лог в
         котором нет текста \n
         P.S на маке у меня не получилось сделать так, чтобы символ \\n делал переход на следующуб строку((''')
     parser.add_argument('file_path', type=str, help='Path to file or directory')
-    parser.add_argument('-d', '--date', type=str, help='''Datetime for search: less then: 
+    parser.add_argument('-d', '--date', type=str, help='''Datetime for search: less then:
     "../2024-01-01 00:00:00.000", more than: "2024-01-01 00:00:00.000/..",
     from - to: "2024-01-01 00:00:00.000/2024-01-01 00:00:00.000", exact: "/2024-01-01 00:00:00.000/"''')
     parser.add_argument('-t', '--text', type=str, help='Text for search')
