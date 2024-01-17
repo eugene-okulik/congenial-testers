@@ -1,6 +1,10 @@
 result = [{'12.01.2023': 'Error message'}, {'12.01.2023': 'Warning message'}]
-result = {'12.01.2023 13:00': '12.01.2023 13:00 Error message', '12.01.2023 13:01': '12.01.2023 13:01 Warning message',
-          '12.01.2023 13:02': '12.01.2023 13:02 Error message appeared'}
+
+result = {
+    '12.01.2023 13:00': '12.01.2023 13:00 Error message',
+    '12.01.2023 13:01': '12.01.2023 13:01 Warning message',
+    '12.01.2023 13:02': '12.01.2023 13:02 Error message appeared'
+}
 
 text = 'Error'
 unwanted = 'appeared'
