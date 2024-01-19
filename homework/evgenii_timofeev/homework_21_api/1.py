@@ -40,9 +40,7 @@ def post_request(url, test):
     url += "/"
     check_created_id = get_request(url, created_id)["id"]
 
-    assert (
-        created_id == check_created_id
-    ), f"Id from get request != id from post request"
+    assert created_id == check_created_id, "Id from get request != id from post request"
     return created_id
 
 
@@ -55,7 +53,7 @@ def put_request(url, payload, id):
 
     assert (
         name_before_put == name_after_put
-    ), f"Name from get request != name from put request"
+    ), "Name from get request != name from put request"
 
 
 def patch_request(url, payload, id):
@@ -67,7 +65,7 @@ def patch_request(url, payload, id):
 
     assert (
         name_before_patch == name_after_patch
-    ), f"Name from get request != name from patch request"
+    ), "Name from get request != name from patch request"
 
 
 def delete_request(url, id):
