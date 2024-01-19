@@ -76,7 +76,7 @@ def delete_request(url, id):
 
     assert (
         message_about_deleting == f"Object with id = {id} has been deleted."
-    ), f"Messages about deleting aren't matched"
+    ), "Messages about deleting aren't matched"
     print(responce)
 
 
