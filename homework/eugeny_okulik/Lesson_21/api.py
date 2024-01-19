@@ -36,10 +36,10 @@ def post_a_post():
 
 def put_a_post():
     payload = {
-            "title": "My tileUPD",
-            "body": "my bodyUPD",
-            "userId": 2
-        }
+        "title": "My tileUPD",
+        "body": "my bodyUPD",
+        "userId": 2
+    }
     headers = {
         'Content-type': 'application/json'
     }
@@ -53,8 +53,8 @@ def put_a_post():
 
 def patch_a_post():
     payload = {
-                "title": "My tileUPD"
-            }
+        "title": "My tileUPD"
+    }
     headers = {
         'Content-type': 'application/json'
     }
