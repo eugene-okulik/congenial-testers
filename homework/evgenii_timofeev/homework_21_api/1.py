@@ -48,7 +48,7 @@ def post_request(url, test):
 
 def put_request(url, payload, id):
     url += id
-    responce = requests.put(url, json=payload).json()
+    requests.put(url, json=payload).json()
 
     name_before_put = payload["name"]
     name_after_put = get_request(url)["name"]
@@ -60,7 +60,7 @@ def put_request(url, payload, id):
 
 def patch_request(url, payload, id):
     url += id
-    responce = requests.patch(url, json=payload).json()
+    requests.patch(url, json=payload).json()
 
     name_before_patch = payload["name"]
     name_after_patch = get_request(url)["name"]
