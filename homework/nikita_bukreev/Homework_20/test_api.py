@@ -48,7 +48,7 @@ def edit_by_putch(id_object):
             "price": 123.321,
             "CPU model": "M100500",
             "Hard disk size": "1 GB"
-            }
+        }
     }
     get_object = requests.get(f'https://api.restful-api.dev/objects/{id_object}').json()
     putched_object = requests.patch(f'https://api.restful-api.dev/objects/{id_object}', json=putched_data).json()
