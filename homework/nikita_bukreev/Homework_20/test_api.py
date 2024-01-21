@@ -3,13 +3,13 @@ import requests
 
 
 my_object = {
-   "name": "Apple fignya",
-   "data": {
-      "year": 2024,
-      "price": 100.500,
-      "CPU model": "M0",
-      "Hard disk size": "1 Mb"
-   }
+    "name": "Apple fignya",
+    "data": {
+        "year": 2024,
+        "price": 100.500,
+        "CPU model": "M0",
+        "Hard disk size": "1 Mb"
+    }
 }
 
 
@@ -43,13 +43,13 @@ def edit_by_put(id_object):
 
 def edit_by_putch(id_object):
     putched_data = {
-         "data": {
+        "data": {
             "year": 2025,
             "price": 123.321,
             "CPU model": "M100500",
             "Hard disk size": "1 GB"
-                }
-        }
+            }
+    }
     get_object = requests.get(f'https://api.restful-api.dev/objects/{id_object}').json()
     putched_object = requests.patch(f'https://api.restful-api.dev/objects/{id_object}', json=putched_data).json()
     assert putched_object['data'] == putched_data['data']
@@ -62,7 +62,7 @@ def delete_object(id_object):
         'Ответ об успешном удалении не получен'
     find_my_object = requests.get(f'https://api.restful-api.dev/objects/{id_object}').json()
     assert find_my_object['error'] == f'Oject with id={id_object} was not found.', \
-        f'Не получена ошибка о ненайденном объекте'
+        'Не получена ошибка о ненайденном объекте'
 
 
 object_id = create_object()
