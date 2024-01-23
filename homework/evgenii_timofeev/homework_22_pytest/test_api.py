@@ -21,8 +21,8 @@ def creating_record(greetings_farwell) -> str:
         },
     }
     url = "https://api.restful-api.dev/objects"
-    responce = requests.post(url, json=payload).json()
-    record_id = responce["id"]
+    response = requests.post(url, json=payload).json()
+    record_id = response["id"]
     yield record_id
     requests.delete(f"https://api.restful-api.dev/objects/{record_id}")
 
