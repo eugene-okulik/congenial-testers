@@ -38,8 +38,8 @@ def post_id():
         json=payload,
         headers=headers
     ).json()
-    # post = response['id']
-    post = 100
+    post = response['id']
+    # post = 100
     yield post
     requests.delete(f'https://jsonplaceholder.typicode.com/posts/{post}')
 
