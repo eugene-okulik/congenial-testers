@@ -4,9 +4,9 @@ import requests
 
 @pytest.fixture(scope="module")
 def greetings_farwell():
-    print(f"Start testing")
+    print("Start testing")
     yield
-    print(f"\n Testing completed")
+    print("\n Testing completed")
 
 
 @pytest.fixture(scope="function")
