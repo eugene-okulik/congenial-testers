@@ -37,7 +37,6 @@ cursor.execute(insert_subject, ('Astrokiberbulling',))
 subject_id = cursor.lastrowid
 print(f'id предмета - {subject_id}')
 
-
 # Добавьте урок
 insert_lesson = "INSERT INTO lessons (title, subject_id) VALUES (%s, %s)"
 cursor.execute(insert_lesson, ('Autorak', subject_id))
@@ -56,12 +55,12 @@ cursor.executemany(
 )
 db.commit()
 
-query1 = f"SELECT value FROM marks WHERE student_id = (%s)"
+query1 = "SELECT value FROM marks WHERE student_id = (%s)"
 cursor.execute(query1, (student_id,))
 selected_marks = cursor.fetchall()
 print(f'Оценки студента - {selected_marks}')
 
-query2 = f"SELECT title FROM books WHERE taken_by_student_id = (%s)"
+query2 = "SELECT title FROM books WHERE taken_by_student_id = (%s)"
 cursor.execute(query2, (student_id,))
 selected_books = cursor.fetchall()
 print(f'Книги взятые студентом - {selected_books}')
