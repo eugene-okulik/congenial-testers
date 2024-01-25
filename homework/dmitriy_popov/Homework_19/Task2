@@ -1,0 +1,6 @@
+Даю группе права:
+chmod 750 /home/d1amosha
+
+
+Меняю группу на указанную в задании:
+sudo chgrp qtp /home/d1amosha
