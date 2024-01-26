@@ -7,3 +7,6 @@ __pycache__
 qodana.yaml
 creds.py
 .env
+allure-results
+allure-report
+allure-reports
