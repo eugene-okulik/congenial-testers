@@ -13,6 +13,7 @@ my_object = {
     }
 }
 
+
 @pytest.fixture(scope='session')
 def show_progress():
     yield print('\nStart testing')
