@@ -1,4 +1,5 @@
 result = [{'12.01.2023': 'Error message'}, {'12.01.2023': 'Warning message'}]
+
 result = {
     '12.01.2023 13:00': '12.01.2023 13:00 Error message',
     '12.01.2023 13:01': '12.01.2023 13:01 Warning message',
