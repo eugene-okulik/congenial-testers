@@ -86,10 +86,10 @@ def put(new_object_id):
 
 
 def delete(new_object_id):
-    response = requests.delete(f'https://jsonplaceholder.typicode.com/posts/{new_object_id}')
+    response = requests.delete(f'https://api.restful-api.dev/objects/{new_object_id}')
     print(response.status_code)
     assert requests.get(
-        f'https://jsonplaceholder.typicode.com/posts/{new_object_id}'
+        f'https://api.restful-api.dev/objects/{new_object_id}'
     ).status_code == 404, 'Not deleted!'
 
 
