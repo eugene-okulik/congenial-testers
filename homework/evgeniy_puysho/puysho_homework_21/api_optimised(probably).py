@@ -25,39 +25,39 @@ UPD_PUT_PAYLOAD = {
 UPD_PATCH_PAYLOAD = {"name": "Updated with patch"}
 
 
-def add_object():
+def add_object(payload, url):
     headers = headers_req
-    response = requests.post(BASE_URL, json=ADD_PAYLOAD, headers=headers).json()
+    response = requests.post(BASE_URL, json=payload, headers=headers).json()
     print(f'Object created:\n {response}')
     new_object = response['id']
-    assert requests.get(f'{BASE_URL}/{new_object}').status_code == 200, 'Error: object has not been added'
+    assert requests.get(f'{url}/{new_object}').status_code == 200, 'Error: object has not been added'
     return response['id']
 
 
-def update_object(obj_id):
+def update_object(obj_id, payload, url):
     headers = headers_req
-    response = requests.put(f'{BASE_URL}/{obj_id}', json=UPD_PUT_PAYLOAD, headers=headers).json()
+    response = requests.put(f'{url}/{obj_id}', json=payload, headers=headers).json()
     print(f'Object updated:\n {response}')
     assert response['name'] == 'UPD: Apple MacBook Pro 16', 'Error: check request body'
-    assert requests.get(f'{BASE_URL}/{obj_id}').status_code == 200, 'Error: object does not exist'
+    assert requests.get(f'{url}/{obj_id}').status_code == 200, 'Error: object does not exist'
 
 
-def update_object_partly(obj_id):
+def update_object_partly(obj_id, payload, url):
     headers = headers_req
     response = requests.patch(
-        f'{BASE_URL}/{obj_id}', json=UPD_PATCH_PAYLOAD, headers=headers).json()
+        f'{url}/{obj_id}', json=payload, headers=headers).json()
     print(f'Object updated partly:\n {response}')
     assert response['name'] == 'Updated with patch', 'Error: check request body'
-    assert requests.get(f'{BASE_URL}/{obj_id}').status_code == 200, 'Error: object does not exist'
+    assert requests.get(f'{url}/{obj_id}').status_code == 200, 'Error: object does not exist'
 
 
-def delete_object(obj_id):
-    response = requests.delete(f'{BASE_URL}/{obj_id}')
+def delete_object(obj_id, url):
+    response = requests.delete(f'{url}/{obj_id}')
     print(f'Status code: {response.status_code}')
-    assert requests.get(f'{BASE_URL}/{obj_id}').status_code == 404, 'Object has not been deleted'
+    assert requests.get(f'{url}/{obj_id}').status_code == 404, 'Object has not been deleted'
 
 
-added_object = add_object()
-update_object(added_object)
-update_object_partly(added_object)
-delete_object(added_object)
+added_object = add_object(ADD_PAYLOAD, BASE_URL)
+update_object(added_object, UPD_PUT_PAYLOAD, BASE_URL)
+update_object_partly(added_object, UPD_PATCH_PAYLOAD, BASE_URL)
+delete_object(added_object, BASE_URL)
