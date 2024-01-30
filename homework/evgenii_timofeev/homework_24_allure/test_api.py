@@ -3,7 +3,6 @@ import pytest
 import requests
 
 
-@allure.title("ПРОВЕРКА2")
 @allure.feature("API Testing")
 @allure.story("Send a valid GET request")
 @allure.title("Test for Get request")
