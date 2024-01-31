@@ -72,3 +72,22 @@ def test_delete_object(create_object):
 def test_get_object(create_object):
     response = requests.get(f'https://api.restful-api.dev/objects/{create_object}').json()
     assert response['id'] == create_object, 'incorrect ID'
+
+
+def test_post_add_object(start):
+    payload = {
+        "name": "Apple iPad 2023",
+        "data": {
+            "year": 2023,
+            "price": 1600.99,
+            "CPU model": "m2",
+            "Hard disk size": "1 TB"
+        },
+    }
+    headers = {"content-type": "application/json"}
+    response = requests.post(
+        'https://api.restful-api.dev/objects',
+        json=payload,
+        headers=headers
+    ).json()
+    assert response['name'] == payload['name']
