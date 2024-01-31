@@ -1,6 +1,7 @@
 import requests
 import pytest
 
+
 @pytest.fixture(scope='session')
 def start():
     print('\nStart testing')
@@ -33,13 +34,11 @@ def post_id(start):
     requests.delete(f'https://api.restful-api.dev/objects/{post}')
 
 
-
 def test_post(post_id):
     response = requests.request('GET', f'https://api.restful-api.dev/objects/{post_id}').json()
     print(response)
     assert response['id'] == post_id, 'Created incorrect object ID'
     assert response['name'] == "SamSung MacBook Pro 16", 'Incorrect name, or object not created'
-
 
 
 def test_put(post_id):
