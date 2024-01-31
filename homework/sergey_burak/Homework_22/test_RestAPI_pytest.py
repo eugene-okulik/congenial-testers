@@ -1,10 +1,15 @@
 import requests
 import pytest
 
+@pytest.fixture(scope='session')
+def start():
+    print('\nStart testing')
+    yield
+    print('\nTesting completed')
+
 
 @pytest.fixture(scope='session')
-def post_id():
-    print('\nStart testing')
+def post_id(start):
     payload = {
         "name": "SamSung MacBook Pro 16",
         "data": {
@@ -26,7 +31,15 @@ def post_id():
     post = response['id']
     yield post
     requests.delete(f'https://api.restful-api.dev/objects/{post}')
-    print('Testing completed\n')
+
+
+
+def test_post(post_id):
+    response = requests.request('GET', f'https://api.restful-api.dev/objects/{post_id}').json()
+    print(response)
+    assert response['id'] == post_id, 'Created incorrect object ID'
+    assert response['name'] == "SamSung MacBook Pro 16", 'Incorrect name, or object not created'
+
 
 
 def test_put(post_id):
@@ -48,6 +61,7 @@ def test_put(post_id):
         headers=headers
     ).json()
     print(response)
+    assert response['name'] == payload['name'], 'Incorrect name, or object not created'
     assert response['data']['price'] == 12849.99, 'Price so mach!'
 
 
@@ -69,7 +83,8 @@ def test_patch(post_id):
         headers=headers
     ).json()
     print(response)
-    assert response['data']['CPU model'] == 'Zilog Z80', 'Incorrect computer'
+    assert response['name'] == payload['name'], 'Incorrect name, or object not patched'
+    assert response['data']['CPU model'] == payload['data']['CPU model'], 'Incorrect computer'
 
 
 def test_get_by_id(post_id):
