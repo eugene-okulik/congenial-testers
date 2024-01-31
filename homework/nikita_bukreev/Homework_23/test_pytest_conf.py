@@ -1,4 +1,3 @@
-import allure
 import pytest
 import requests
 import datetime
@@ -16,8 +15,6 @@ my_object = {
 }
 
 
-@allure.feature('Homework 23')
-@allure.story('Main test')
 @pytest.mark.critical
 def test_create_object(show_progress):
     create_my_object = requests.post(URL, json=my_object)
@@ -39,7 +36,6 @@ def test_create_object(show_progress):
     assert get_my_object == create_object_json, 'Созданный объект не соответствует изначальному'
 
 
-@allure.feature('Homework 23')
 @pytest.mark.parametrize('edited_data', [{"name": "Apple polnaya fignya"}, {"name": "111"}, {"name": "small"}])
 def test_edit_by_put(crud_function, edited_data):
     edit_object_put = requests.put(f'{URL}/{crud_function}', json=edited_data).json()
@@ -47,7 +43,6 @@ def test_edit_by_put(crud_function, edited_data):
     assert edit_object_put['data'] is None, "Метод отработал некорректно, data осталась у объекта"
 
 
-@allure.feature('Homework 23')
 @pytest.mark.medium
 def test_edit_by_putch(crud_function):
     putched_data = {
@@ -64,7 +59,6 @@ def test_edit_by_putch(crud_function):
     assert putched_object['name'] == get_object['name'], 'Имя сущности изменилось'
 
 
-@allure.feature('Homework 23')
 def test_delete_object(crud_function):
     delete_my_object = requests.delete(f'{URL}/{crud_function}').json()
     assert delete_my_object['message'] == f'Object with id = {crud_function} has been deleted.', \
