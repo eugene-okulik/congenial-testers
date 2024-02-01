@@ -9,7 +9,7 @@ def start():
     print('\nTesting completed')
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='function')
 def post_id(start):
     payload = {
         "name": "SamSung MacBook Pro 16",
@@ -46,7 +46,7 @@ def test_put(post_id):
         "name": "Sumsung 22",
         "data": {
             "year": 2028,
-            "price": 12849.99,
+            "price": 99999.99,
             "CPU model": "AMD Core i19",
             "Hard disk size": "20 TB"
         }
@@ -61,7 +61,8 @@ def test_put(post_id):
     ).json()
     print(response)
     assert response['name'] == payload['name'], 'Incorrect name, or object not created'
-    assert response['data']['price'] == 12849.99, 'Price so mach!'
+    assert response['data']['price'] == payload['data']['price'], 'Price so mach!'
+    assert response['data']['year'] == payload['data']['year'], 'Incorrect year!'
 
 
 def test_patch(post_id):
