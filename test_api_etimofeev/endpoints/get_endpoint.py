@@ -13,4 +13,7 @@ class CreateGetRequest(BaseEndpoint):
             f"{self.url}/{id}", headers=headers if headers else self.headers
         )
         self.json = self.response.json()
+        assert (
+            self.response.status_code == 200
+        ), f"Response code is {self.response.status_code}"
         return self.response

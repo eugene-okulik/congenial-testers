@@ -1,6 +1,7 @@
 from typing import Optional, Dict, Any
 
 import requests
+from pydantic import BaseModel, ValidationError
 
 
 class BaseEndpoint:
@@ -28,3 +29,11 @@ class BaseEndpoint:
 
     def show_info(self):
         print(self.json)
+
+    def validate_response(self, response_model: type[BaseModel]) -> None:
+        if self.json is None:
+            raise AssertionError("No data in JSON.")
+        try:
+            response_model.model_validate(self.json)
+        except ValidationError as e:
+            raise AssertionError(f"Validation error: {e}")
