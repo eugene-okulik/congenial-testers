@@ -15,13 +15,13 @@ MY_OBJECT = {
 EDITED_DATA = [{"name": "Apple polnaya fignya"}, {"name": "111"}, {"name": "small"}]
 
 PATCHED_DATA = {
-        "data": {
-            "year": 2025,
-            "price": 123.321,
-            "CPU model": "M100500",
-            "Hard disk size": "1 GB"
-        }
+    "data": {
+        "year": 2025,
+        "price": 123.321,
+        "CPU model": "M100500",
+        "Hard disk size": "1 GB"
     }
+}
 
 
 @allure.feature('Homework 25')

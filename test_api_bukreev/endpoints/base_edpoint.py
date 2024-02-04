@@ -14,7 +14,7 @@ class BaseEndpoint:
         self.json = self.response.json()
         return self.response
 
-    @allure.step(f'Delete needed element from dict')
+    @allure.step('Delete needed element from dict')
     def del_element_from_dict(self, element):
         self.json.pop(element)
         return self.json
