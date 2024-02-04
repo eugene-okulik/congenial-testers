@@ -1,8 +1,13 @@
+import allure
 import pytest
 
 from test_api_etimofeev.models.put_model import ProductResponseModel
 
 
+@allure.feature("API Testing")
+@allure.story("Send a valid PUT request")
+@allure.title("Test for a PUT request")
+@allure.severity(allure.severity_level.NORMAL)
 @pytest.mark.parametrize(
     "name", ["Iphone 15 Pro Max", "Samsung S24 Ultra", "Nothing Phone 1"]
 )

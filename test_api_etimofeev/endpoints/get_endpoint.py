@@ -1,11 +1,13 @@
 from typing import Optional, Dict
 
+import allure
 import requests
 
 from test_api_etimofeev.endpoints.base_endpoint import BaseEndpoint
 
 
 class CreateGetRequest(BaseEndpoint):
+    @allure.step("Creating a Get request")
     def create_get_request(
         self, id: str, headers: Optional[Dict[str, str]] = None
     ) -> requests.Response:

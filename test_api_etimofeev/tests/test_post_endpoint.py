@@ -1,6 +1,12 @@
+import allure
+
 from test_api_etimofeev.models.post_model import ProductResponseModel
 
 
+@allure.feature("API Testing")
+@allure.story("Send a valid POST request")
+@allure.title("Test for a POST request")
+@allure.severity(allure.severity_level.CRITICAL)
 def test_post_request(create_post_endpoint):
     data = {
         "name": "Apple MacBook Pro 16",
