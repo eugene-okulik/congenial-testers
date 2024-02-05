@@ -52,7 +52,7 @@ def test_patch_object(create_object):
 @allure.story("Send a valid DELETE request")
 @allure.title("Удаление объекта")
 def test_delete_object(create_object):
-    with allure.step(f'Send DELETE request to delete a post '):
+    with allure.step('Send DELETE request to delete a post'):
         response = requests.delete(f'https://api.restful-api.dev/objects/{create_object}')
     assert response.status_code == 200
 
@@ -62,7 +62,7 @@ def test_delete_object(create_object):
 @allure.title("Получение объекта через GET request")
 @pytest.mark.medium
 def test_get_object(create_object):
-    with allure.step(f'Send GET request to get a post '):
+    with allure.step('Send GET request to get a post'):
         response = requests.get(f'https://api.restful-api.dev/objects/{create_object}').json()
     assert response['id'] == create_object, 'incorrect ID'
 
