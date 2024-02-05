@@ -31,6 +31,7 @@ def patch_fun():
 def del_fun():
     return DelEndpoint()
 
+
 @pytest.fixture()
 def crud_fun(create_fun, del_fun):
     payload = {
