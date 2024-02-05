@@ -1,7 +1,7 @@
 import requests
 import allure
 
-from test_api_eokuik.endpoints.endpoint import Endpoint
+from endpoints.endpoint import Endpoint
 
 
 class CreatePost(Endpoint):
@@ -16,5 +16,6 @@ class CreatePost(Endpoint):
             json=payload,
             headers=headers
         )
+        print(self.response, self.url)
         self.json = self.response.json()
         return self.response

@@ -1,7 +1,7 @@
 import requests
 import allure
 
-from test_api_eokuik.endpoints.endpoint import Endpoint
+from endpoints.endpoint import Endpoint
 
 
 class UpdatePost(Endpoint):
