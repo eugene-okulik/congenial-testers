@@ -30,3 +30,18 @@ def patch_fun():
 @pytest.fixture()
 def del_fun():
     return DelEndpoint()
+
+@pytest.fixture()
+def crud_fun(create_fun, del_fun):
+    payload = {
+        "name": "Apple fignya",
+        "data": {
+            "year": 2024,
+            "price": 100.500,
+            "CPU model": "M0",
+            "Hard disk size": "1 Mb"
+        }
+    }
+    create_fun.create_object(my_object=payload)
+    yield create_fun.object_id
+    del_fun.del_object(create_fun.object_id)
