@@ -99,13 +99,13 @@ print(f'Все книги, которые находятся у студента
 # оценки с названиями занятий и предметов (всё одним запросом с использованием Join)
 
 cursor.execute('''
-    SELECT * FROM `groups` g 
-    LEFT JOIN students s ON g.id = s.group_id 
-    LEFT JOIN books b ON s.id = b.taken_by_student_id 
-    LEFT JOIN marks m ON s.id = m.student_id 
-    LEFT JOIN lessons l ON m.lesson_id = l.id 
-    LEFT JOIN subjets s2 ON l.subject_id = s2.id 
-    where s.id = 184
+SELECT * FROM `groups` g
+LEFT JOIN students s ON g.id = s.group_id
+LEFT JOIN books b ON s.id = b.taken_by_student_id
+LEFT JOIN marks m ON s.id = m.student_id
+LEFT JOIN lessons l ON m.lesson_id = l.id
+LEFT JOIN subjets s2 ON l.subject_id = s2.id
+where s.id = 184
 ''')
 print(f'Данные по студенту: {cursor.fetchall()}')
 
