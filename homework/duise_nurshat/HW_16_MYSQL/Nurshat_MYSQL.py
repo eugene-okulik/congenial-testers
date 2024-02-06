@@ -39,7 +39,12 @@ print(cursor.fetchone())
 
 # Создание учебных предметов
 insert_many_subj = "insert into subjets (title) values (%s)"
-subject = [("Мат.анализ-2",), ("Труд-2",), ("Python.Основы-2",), ("JAVA.Basic-2",)]
+subject = [
+    ("Мат.анализ-2",),
+    ("Труд-2",),
+    ("Python.Основы-2",),
+    ("JAVA.Basic-2",)
+]
 cursor.executemany(insert_many_subj, subject)
 
 cursor.execute("select * from subjets order by id desc limit 4")
@@ -47,32 +52,36 @@ print(cursor.fetchall())
 
 # Создание занятии для предметов
 insert_new_lessons = "INSERT INTO lessons (title, subject_id) values (%s, %s)"
-cursor.executemany(insert_new_lessons, [
-    ('Занятие в пн-2', 191),
-    ('Занятие в вт-2', 191),
-    ('Занятие в ср-2', 192),
-    ('Занятие в чт-2', 192),
-    ('Занятие в пт-2', 193),
-    ('Занятие в сб-2', 193),
-    ('Занятие в летом-2', 194),
-    ('Занятие в весной-2', 194)
-])
+cursor.executemany(
+    insert_new_lessons, [
+        ('Занятие в пн-2', 191),
+        ('Занятие в вт-2', 191),
+        ('Занятие в ср-2', 192),
+        ('Занятие в чт-2', 192),
+        ('Занятие в пт-2', 193),
+        ('Занятие в сб-2', 193),
+        ('Занятие в летом-2', 194),
+        ('Занятие в весной-2', 194)
+    ]
+)
 
 cursor.execute("select * from lessons order by id desc limit 8")
 print(cursor.fetchall())
 
 # Ставка оценки
 insert_new_marks = "INSERT INTO marks (value, lesson_id, student_id) values (%s, %s, %s)"
-cursor.executemany(insert_new_marks, [
-    (10, 509, 184),
-    (20, 510, 184),
-    (30, 511, 184),
-    (40, 512, 184),
-    (50, 513, 184),
-    (60, 514, 184),
-    (70, 515, 184),
-    (80, 516, 184)
-])
+cursor.executemany(
+    insert_new_marks, [
+        (10, 509, 184),
+        (20, 510, 184),
+        (30, 511, 184),
+        (40, 512, 184),
+        (50, 513, 184),
+        (60, 514, 184),
+        (70, 515, 184),
+        (80, 516, 184)
+    ]
+)
 
 cursor.execute("select * from marks where student_id = 184 order by id desc limit 8")
 print(cursor.fetchall())
