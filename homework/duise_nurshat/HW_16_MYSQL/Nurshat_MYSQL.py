@@ -12,7 +12,7 @@ db = mysql.connect(
 cursor = db.cursor()
 
 # Добавление нового студента
-cursor.execute("insert into students (name, second_name, group_id) values ('Nurshat', 'Duise', 124)")
+cursor.execute("insert into students (name, second_name, group_id) values ('Robert', 'Alexander III', 127)")
 
 student_id = cursor.lastrowid
 cursor.execute(f"select * from students where id = {student_id}")
@@ -21,17 +21,17 @@ print(cursor.fetchone())
 # Добавление новой книги
 insert_many_books = "insert into books (title, taken_by_student_id) values (%s, %s)"
 cursor.executemany(insert_many_books, [
-    ('Идеальный программист-2 :)', 184),
-    ('1984-2', 184),
-    ('Lists-2', 184),
-    ('ASU-2', 184)
+    ('Идеальный программист-3 :)', 196),
+    ('1984-3', 196),
+    ('Lists-3', 196),
+    ('ASU-3', 196)
 ])
 
-cursor.execute("select * from books where taken_by_student_id = 184")
+cursor.execute("select * from books where taken_by_student_id = 196")
 print(cursor.fetchall())
 
 # Создание группы
-cursor.execute("insert into `groups` (title, start_date, end_date) values ('DNA-2 group', '01/04/24', '01/04/25')")
+cursor.execute("insert into `groups` (title, start_date, end_date) values ('DNA-3 group', '01/04/24', '01/04/25')")
 
 group_id = cursor.lastrowid
 cursor.execute(f'select * from repr(groups) where id = {group_id}')
@@ -40,10 +40,10 @@ print(cursor.fetchone())
 # Создание учебных предметов
 insert_many_subj = "insert into subjets (title) values (%s)"
 subject = [
-    ("Мат.анализ-2",),
-    ("Труд-2",),
-    ("Python.Основы-2",),
-    ("JAVA.Basic-2",)
+    ("Мат.анализ-3",),
+    ("Труд-3",),
+    ("Python.Основы-3",),
+    ("JAVA.Basic-3",)
 ]
 cursor.executemany(insert_many_subj, subject)
 
@@ -54,14 +54,14 @@ print(cursor.fetchall())
 insert_new_lessons = "INSERT INTO lessons (title, subject_id) values (%s, %s)"
 cursor.executemany(
     insert_new_lessons, [
-        ('Занятие в пн-2', 191),
-        ('Занятие в вт-2', 191),
-        ('Занятие в ср-2', 192),
-        ('Занятие в чт-2', 192),
-        ('Занятие в пт-2', 193),
-        ('Занятие в сб-2', 193),
-        ('Занятие в летом-2', 194),
-        ('Занятие в весной-2', 194)
+        ('Занятие в пн-2', 199),
+        ('Занятие в вт-2', 199),
+        ('Занятие в ср-2', 200),
+        ('Занятие в чт-2', 200),
+        ('Занятие в пт-2', 201),
+        ('Занятие в сб-2', 201),
+        ('Занятие в летом-2', 202),
+        ('Занятие в весной-2', 202)
     ]
 )
 
@@ -72,14 +72,14 @@ print(cursor.fetchall())
 insert_new_marks = "INSERT INTO marks (value, lesson_id, student_id) values (%s, %s, %s)"
 cursor.executemany(
     insert_new_marks, [
-        (10, 509, 184),
-        (20, 510, 184),
-        (30, 511, 184),
-        (40, 512, 184),
-        (50, 513, 184),
-        (60, 514, 184),
-        (70, 515, 184),
-        (80, 516, 184)
+        (11, 525, 196),
+        (21, 526, 196),
+        (31, 527, 196),
+        (41, 528, 196),
+        (51, 529, 196),
+        (61, 530, 196),
+        (71, 531, 196),
+        (81, 532, 196)
     ]
 )
 
@@ -88,11 +88,11 @@ print(cursor.fetchall())
 
 # Получите информацию из базы данных: Все оценки студента
 
-cursor.execute("select * from marks m where m.student_id = 184")
+cursor.execute("select * from marks m where m.student_id = 196")
 print(f'Все оценки студента: {cursor.fetchall()}')
 
 # Получите информацию из базы данных: Все книги, которые находятся у студента
-cursor.execute("select * from books b where b.taken_by_student_id = 184")
+cursor.execute("select * from books b where b.taken_by_student_id = 196")
 print(f'Все книги, которые находятся у студента: {cursor.fetchall()}')
 
 # Для вашего студента выведите всё, что о нем есть в базе: группа, книги,
@@ -105,7 +105,7 @@ LEFT JOIN books b ON s.id = b.taken_by_student_id
 LEFT JOIN marks m ON s.id = m.student_id
 LEFT JOIN lessons l ON m.lesson_id = l.id
 LEFT JOIN subjets s2 ON l.subject_id = s2.id
-where s.id = 184
+where s.id = 196
 ''')
 print(f'Данные по студенту: {cursor.fetchall()}')
 
