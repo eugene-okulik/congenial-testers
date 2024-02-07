@@ -52,7 +52,7 @@ def test_put_request(creating_record: str):
 
 
 def test_patch_request(creating_record):
-    payload = {"name": "Iphone 122 (Belarus)"}
+    payload = {"name": "Iphone 122 (Russia)"}
 
     responce_patch = requests.patch(
         f"https://api.restful-api.dev/objects/{creating_record}", json=payload
