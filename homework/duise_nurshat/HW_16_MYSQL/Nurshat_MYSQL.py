@@ -34,6 +34,7 @@ print(cursor.fetchall())
 cursor.execute("insert into `groups` (title, start_date, end_date) values ('DNA-3 group', '01/04/24', '01/04/25')")
 
 group_id = cursor.lastrowid
+cursor.execute(f"update students set group_id = {group_id} where id = 196")
 cursor.execute(f'select * from repr(groups) where id = {group_id}')
 print(cursor.fetchone())
 
