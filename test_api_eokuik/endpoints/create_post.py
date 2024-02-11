@@ -5,6 +5,7 @@ from test_api_eokuik.endpoints.endpoint import Endpoint
 
 
 class CreatePost(Endpoint):
+    post_id = None
 
     @allure.step('Create new post')
     def create_new_post(self, payload, headers=None):
@@ -17,4 +18,5 @@ class CreatePost(Endpoint):
             headers=headers
         )
         self.json = self.response.json()
+        self.post_id = self.json['id']
         return self.response
