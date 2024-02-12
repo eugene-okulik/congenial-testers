@@ -2,6 +2,7 @@ import pytest
 import requests
 
 
+@pytest.mark.critical
 def test_post(start):
     # response = requests.request('GET', f'https://api.restful-api.dev/objects/{post_id}').json()
     # print(response)
@@ -53,6 +54,7 @@ def test_put(post_id, name):
     assert response['data']['year'] == payload['data']['year'], 'Incorrect year!'
 
 
+@pytest.mark.medium
 def test_patch(post_id):
     payload = {
         "name": "ZX Spectrum",
