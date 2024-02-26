@@ -21,4 +21,4 @@ def test_waits():
     driver.get('https://the-internet.herokuapp.com/dynamic_loading/2')
     driver.find_element(By.CSS_SELECTOR, '#start > button:nth-child(1)').click()
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, 'finish')))
-    assert driver.find_element(By.ID, 'finish').is_displayed(), 'Result is not displayed or Word is not Hello!'
+    assert driver.find_element(By.ID, 'finish').is_displayed(), 'Result is not displayed!'
