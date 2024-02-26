@@ -7,7 +7,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome()
 driver.maximize_window()
-#driver.implicitly_wait(10)
 
 
 def test_select():
