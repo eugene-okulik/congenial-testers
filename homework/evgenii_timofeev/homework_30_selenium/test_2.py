@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 def driver():
     driver_my = webdriver.Chrome()
     driver_my.maximize_window()
+    driver_my.implicitly_wait(10)
     return driver_my
 
 
