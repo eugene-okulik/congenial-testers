@@ -1,7 +1,7 @@
 from playwright.sync_api import Page
 
 
-def test_by_role(page: Page):
+def test_page_filling(page: Page):
     page.goto("https://demoqa.com/automation-practice-form")
     page.locator("#firstName").fill("Name")
     page.locator("#lastName").fill("Last")
