@@ -8,6 +8,7 @@ def test_by_role(page: Page):
     page.locator("#userEmail").fill("useremail@bred.com")
     page.locator('label[for="gender-radio-1"]').click()
     page.locator("#userNumber").fill("8800555353")
+
     page.locator("#dateOfBirthInput").click()
     page.locator("select.react-datepicker__month-select").select_option(value="11")
     page.locator("select.react-datepicker__year-select").select_option(value="1998")
