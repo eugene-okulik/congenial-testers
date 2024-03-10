@@ -8,7 +8,9 @@ def test_one(page: Page):
     page.locator(".a-button").click()
     final_element = page.locator("#result")
 
-    expect(final_element, f"Text is wrong").to_contain_text("Ok")
+    expect(final_element, f"Text is wrong, locator {final_element}").to_contain_text(
+        "Ok"
+    )
 
 
 def test_two(page: Page, context: BrowserContext):
@@ -21,8 +23,10 @@ def test_two(page: Page, context: BrowserContext):
     second_page = new_page_event.value
     result_text = second_page.locator("#result-text")
 
-    expect(result_text, f"Text is wrong").to_have_text("I am a new page in a new tab")
-    expect(click_button, f"Text is wrong").to_be_enabled()
+    expect(result_text, f"Text is wrong, locator {result_text}").to_have_text(
+        "I am a new page in a new tab"
+    )
+    expect(click_button, f"Text is wrong, locator {click_button}").to_be_enabled()
 
 
 def test_three(page: Page):
