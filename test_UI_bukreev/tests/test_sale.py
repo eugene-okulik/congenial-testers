@@ -21,7 +21,7 @@ def test_clickable_block(sale_page):
 
 @allure.feature('Sale page')
 @allure.story('Check page have six banners')
-def test_clickable_block(sale_page):
+def test_banners_count(sale_page):
     sale_page.open()
     sale_page.search_all_banners()
     sale_page.check_banners_count()

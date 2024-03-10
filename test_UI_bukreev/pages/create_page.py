@@ -32,11 +32,16 @@ class CreateAccount(BasePage):
 
     @allure.step('Fill all input fields')
     def fill_all_fields(self, first_name, last_name, email, password, confirm_password):
-        input_first_name = self.find(loc.INPUT_FIRST_NAME).send_keys(first_name)
-        input_last_name = self.find(loc.INPUT_LAST_NAME).send_keys(last_name)
-        input_email = self.find(loc.INPUT_EMAIL).send_keys(email)
-        input_password = self.find(loc.INPUT_PASSWORD).send_keys(password)
-        input_confirm_password = self.find(loc.INPUT_CONFIRM_PASSWORD).send_keys(confirm_password)
+        input_first_name = self.find(loc.INPUT_FIRST_NAME)
+        input_first_name.send_keys(first_name)
+        input_last_name = self.find(loc.INPUT_LAST_NAME)
+        input_last_name.send_keys(last_name)
+        input_email = self.find(loc.INPUT_EMAIL)
+        input_email.send_keys(email)
+        input_password = self.find(loc.INPUT_PASSWORD)
+        input_password.send_keys(password)
+        input_confirm_password = self.find(loc.INPUT_CONFIRM_PASSWORD)
+        input_confirm_password.send_keys(confirm_password)
 
     @allure.step('Check alert message')
     def check_alert_message(self):
