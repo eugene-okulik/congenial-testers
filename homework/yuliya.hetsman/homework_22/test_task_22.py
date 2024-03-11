@@ -66,3 +66,18 @@ def test_delete_object(add_object):
 def test_get_object(add_object):
     response = requests.get(f'https://api.restful-api.dev/objects/{add_object}')
     print(f'{response.json()}')
+
+
+def test_add_object(start):
+    headers = {"content-type": "application/json"}
+    payload = {
+        "name": "Apple MacBook Pro 16",
+        "data": {
+            "year": 2019,
+            "price": 1849.99,
+            "CPU model": "Intel Core i9",
+            "Hard disk size": "1 TB"
+        }
+    }
+    response = requests.post('https://api.restful-api.dev/objects', json=payload, headers=headers).json()
+    assert response['name'] == payload['name']
