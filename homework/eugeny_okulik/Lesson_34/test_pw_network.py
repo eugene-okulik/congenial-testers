@@ -82,3 +82,31 @@ def test_api(page: Page):
     expect(response).to_be_ok()
     assert response.json()['id'] == 42
     print(type(response))
+
+
+def test_change_request(page: Page):
+    def change_req(route: Route):
+        url = route.request.url
+        print(url)
+        url = url.replace('&filter4=09z01', '')
+        route.continue_(url=url)
+    page.route(re.compile('/product/finder'), change_req)
+    page.goto('https://www.samsung.com/au/smartphones/galaxy-z/')
+    sleep(2)
+    page.locator('[for="checkbox-series09z01"]').click()
+    sleep(5)
+
+
+def test_resp(page: Page):
+    def change_resp(route: Route):
+        response = route.fetch()
+        data = response.body().decode('utf-8')
+        data = data.replace('Galaxy Z Fold5', 'AAAAAAAAAAAAAAAAAAAAAAAAAA')
+        data = data.encode('ascii')
+        route.fulfill(response=response, body=data)
+
+    page.route(re.compile('/product/finder'), change_resp)
+    page.goto('https://www.samsung.com/au/smartphones/galaxy-z')
+    sleep(1)
+    page.locator('[for="checkbox-series09z01"]').click()
+    sleep(1)
