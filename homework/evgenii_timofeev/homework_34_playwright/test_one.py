@@ -9,7 +9,6 @@ def test_one(page: Page):
     def handle_route(route: Route):
         response = route.fetch()
         body = response.json()
-        new_iphone = "УГА БУГА"
         body["body"]["digitalMat"][0]["familyTypes"][0]["productName"] = expected_text
         body = json.dumps(body)
         route.fulfill(response=response, body=body)
