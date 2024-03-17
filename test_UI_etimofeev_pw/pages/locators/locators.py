@@ -1,11 +1,11 @@
 class AccountCreateLocators:
-    FIRST_NAME_FIELD = "#firstname"
-    LAST_NAME_FIELD = "#lastname"
-    EMAIL_FIELD = "#email_address"
-    PASSWORD_FILED = "#password"
-    CONFIRM_PASSWORD_FIELD = "#password-confirmation"
+    FIRST_NAME_FIELD = "firstname"
+    LAST_NAME_FIELD = "lastname"
+    EMAIL_FIELD = "email_address"
+    PASSWORD_FILED = "password"
+    CONFIRM_PASSWORD_FIELD = "password-confirmation"
     CREATE_ACCOUNT_BUTTON = "[class = 'action submit primary']"
-    STRENGTH_PASSWORD = "#password-strength-meter-label"
+    STRENGTH_PASSWORD = "password-strength-meter-label"
     SUCCESS_MESSAGE = "[data-ui-id='message-success']"
     CONTENT_ELEMENT = ".box-content"
 
