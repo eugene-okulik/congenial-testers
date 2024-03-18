@@ -1,6 +1,7 @@
 from playwright.sync_api import Page, expect, BrowserContext, Dialog
 import re
 
+
 def test_qapractice_confirm(page: Page):
     def ok_alert(alert: Dialog):
         alert.accept()
