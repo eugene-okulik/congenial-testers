@@ -26,7 +26,7 @@ def test_demoqa_form(page: Page):
     page.locator('#react-select-2-option-0').click()
     page.locator('#subjectsInput').press_sequentially('p')
     page.locator('#react-select-2-option-0').click()
-    page.locator('//*[@for="hobbies-checkbox-1"]').click()
+    page.locator('//*[@for="hobbies-checkbox-1"]').check()
     page.locator('//*[@for="hobbies-checkbox-3"]').click()
     page.locator('#currentAddress').fill('14-5 Kremko str.')
     page.locator('#state').click()
