@@ -1,5 +1,4 @@
 from playwright.sync_api import Page, expect, Route
-from time import sleep
 import re
 import json
 
@@ -20,4 +19,3 @@ def test_apple_to_yabloko(page: Page):
     iphone = page.locator('.rf-hcard-content-title').first
     iphone.click()
     expect(page.locator('#rf-digitalmat-overlay-label').first).to_have_text('яблокофон 15 про')
-    sleep(3)
