@@ -1,12 +1,17 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from time import sleep
 from test_UI_eokulik.pages.sign_in_page import SignIn
 
 
 @pytest.fixture()
 def driver():
-    chrome = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    chrome = webdriver.Chrome(options=options)
     sleep(3)
     chrome.maximize_window()
     return chrome
