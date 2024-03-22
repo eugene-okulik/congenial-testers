@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from time import sleep
 from test_UI_eokulik.pages.sign_in_page import SignIn
+import random
 
 
 @pytest.fixture()
@@ -14,7 +15,8 @@ def driver():
     chrome = webdriver.Chrome(options=options)
     sleep(3)
     chrome.maximize_window()
-    return chrome
+    yield chrome
+    chrome.save_screenshot(f'{random.randrange(100)}.png')
 
 
 @pytest.fixture()
