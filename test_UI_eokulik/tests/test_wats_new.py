@@ -1,7 +1,9 @@
 from test_UI_eokulik.pages.whats_new_page import WhatsNew
 from test_UI_eokulik.pages.promo_page import PromoPage
+import pytest
 
 
+@pytest.mark.regression
 def test_button(driver):
     whats_new_page = WhatsNew(driver)
     whats_new_page.open()

@@ -1,6 +1,8 @@
 import allure
+import pytest
 
 
+@pytest.mark.smoke
 @allure.feature('Sign in')
 def test_incorrect_login(sign_in_page):
     sign_in_page.open()
