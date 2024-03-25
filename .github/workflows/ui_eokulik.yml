@@ -50,7 +50,7 @@ jobs:
           distribution: 'microsoft'
           java-version: '17'
       - name: install Allure
-        run: sudo wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure_2.27.0-1_all.deb && sudo dpkg -i allure_2.27.0-1_all.deb
+        run: sudo wget https://github.com/allure-framework/allure2/releases/download/2.27.0/allure-2.27.0.tgz -C /opt/ && sudo ln -s /opt/allure-2.27.0/bin/allure /usr/bin/allure
       - name: Generate report
         run: allure generate -c test_UI_eokulik/allure-results -o _site
       - name: Save report as artifact
