@@ -29,6 +29,16 @@ jobs:
       - name: install dependencies
         run: pip install -r requirements.txt
       - name: run regression tests
+        if: "github.event.inputs.deployment_target == 'regression'"
         run: cd test_UI_eokulik && pytest -m regression
+      - name: run simple tests
+        if: "github.event.inputs.deployment_target == 'simple'"
+        run: cd test_UI_eokulik && pytest -m simple
+      - name: run smoke tests
+        if: "github.event.inputs.deployment_target == 'smoke'"
+        run: cd test_UI_eokulik && pytest -m smoke
+      - name: run all tests
+        if: "github.event.inputs.deployment_target == 'all'"
+        run: cd test_UI_eokulik && pytest
       
       
