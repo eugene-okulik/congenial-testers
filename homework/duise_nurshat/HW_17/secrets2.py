@@ -42,11 +42,13 @@ base_path = os.path.dirname(__file__)
 file_path = os.path.dirname(os.path.dirname(base_path))
 needed_file_path = os.path.join(file_path, 'eugeny_okulik', 'Lesson_17', 'hw_data', 'db_data.csv')
 
+
 with open(needed_file_path, newline='', encoding=encoding) as csv_file:
     csv_data = csv.reader(csv_file)
     data = []
     for row in csv_data:
         data.append(row)
+
 
 skipped_data = []
 for row in data:
