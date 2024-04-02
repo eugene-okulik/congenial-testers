@@ -35,7 +35,6 @@ all_info_query = '''
 '''
 cursor.execute(all_info_query)
 all_info = cursor.fetchall()
-db.commit()
 db.close()
 
 base_path = os.path.dirname(__file__)
