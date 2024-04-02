@@ -17,7 +17,7 @@ db = mysql.connect(
 
 cursor = db.cursor(dictionary=True)
 all_info_query = '''
-    select 
+    select
         s.name, s.second_name,
         g.title as `group`,
         b.title as book,
