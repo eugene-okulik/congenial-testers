@@ -51,7 +51,7 @@ class EcoFriendly(BasePage):
     def sort_by(self, sort_option):
         sort_by = self.find_in_element(loc.SORT_BLOCK, f"//div[contains(text(), '{sort_option}')]")
         sort_by.click()
-        chose_first = self.find_all_in_element(sort_by, f"..//a")
+        chose_first = self.find_all_in_element(sort_by, "..//a")
         self.sort_items_count = self.find_all_in_element(chose_first, loc.SORT_COUNT).text_content().split('\n')[0]
         chose_first.click()
         return self.sort_items_count
