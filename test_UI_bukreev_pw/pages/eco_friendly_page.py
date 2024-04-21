@@ -1,6 +1,8 @@
 import allure
 from test_UI_bukreev_pw.pages.base_page import BasePage
 from test_UI_bukreev_pw.pages.locators import eco_friendly as loc
+from playwright.sync_api import expect
+import re
 
 
 class EcoFriendly(BasePage):
@@ -10,12 +12,13 @@ class EcoFriendly(BasePage):
     def chang_items_per_page(self, value):
         limiter = self.find(loc.SELECT_PER_PAGE).nth(1)
         limiter.select_option(value)
-        limiter.wait_for(timeout=10000)
-        # я сдался, несколько часов пытался побороть, но не понимаю, как это сделать в плэйврайте
-        # пытался задать и wait_for в локаторе с разными аргументами
-        # и ожидание в самом base_page, но ловил разные ошибки
-        # короче меня и мои познания в плэйврайте убила простая перезагрузка страницы на этом сайте
-        # решение с подобным ождиание по сути аналогично time.wait, но лучшего я не нашел((
+        # if value != '12':  #  костыль
+        #     expect(self.page).to_have_url(re.compile('product_list_limit'))
+        # else:
+        #     expect(self.page).not_to_have_url(re.compile('product_list_limit'))
+        # expect(self.page.locator('.not-logged-in').first).not_to_be_empty()
+
+        # limiter.wait_for(timeout=10000) # тоже костыль
 
     @allure.step('Check that count of items is change')
     def check_count_items(self, minimum, maximum):
