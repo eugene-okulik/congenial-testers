@@ -1,0 +1,9 @@
+/dev/null: c character special file
+/dev/zero: c character special file
+/dev/sda: cannot stat '/dev/sda': No such file or directory
+/dev/tty: c character special file
+/root: d directory
+/etc/passwd: - regular file
+/proc/mounts: l symbolic link
+/bin/ls: - regular file
+/bin/zcat: - regular file
