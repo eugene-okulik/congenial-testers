@@ -1,0 +1,6 @@
+So, it was an amazing course. I really enjoyed it. Thank you Eugene! You are the greatest teacher:)
+
+My final project is on this link https://github.com/Voyager17/playwright_project
+I customized allure, lint, github actions, dotenv. Invented interesting functions.
+BUT. THEY DESTROYED SOME OF MY TESTS! THEY ADDED ANTI-BOT PROTECTING! (developers of the site drom.ru)
+Likely, it happened because of me. The whole week I was sending a lot of requests for authorization
